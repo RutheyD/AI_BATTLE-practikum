@@ -1,0 +1,22 @@
+# בסיס התמונה של .NET 8
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+# תמונת הבנייה של .NET 8
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+COPY ["AuthServer/AuthServer/AiBattle.API.csproj", "AuthServer/AuthServer/"]
+RUN dotnet restore "AuthServer/AuthServer/AiBattle.API.csproj"
+COPY . . 
+WORKDIR "/src/AuthServer/AuthServer"
+RUN dotnet build "AiBattle.API.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "AuthServer/AuthServer/AiBattle.API.csproj" -c Release -o /app/publish
+
+# בניית האפליקציה
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "AiBattle.API.dll"]

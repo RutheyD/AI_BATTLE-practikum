@@ -67,11 +67,21 @@ builder.Services.AddHostedService<ChallengeExpirationJob>();
 //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 //});
 
-
+//builder.Services.AddDbContext<DataContext>(options =>
+//{
+//    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+//        new MySqlServerVersion(new Version(8, 0, 21)));
+//});
+builder.Services.AddDbContext<DataContext>((serviceProvider, options) =>
+{
+    var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+    options.UseMySql(configuration.GetConnectionString("ConnectionStrings:DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 21)));
+});
 //builder.Services.AddDbContext<Data.DataContext>(options =>
 //    options.UseMySql("server=localhost;database=competition;user=root;password=1qaz2wsx!QAZ@WSX",
 //        new MySqlServerVersion(new Version(8, 0, 21))));
-//
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
