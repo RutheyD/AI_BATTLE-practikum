@@ -27,7 +27,9 @@ namespace Shared.Helpers
                 new Claim(ClaimTypes.Email, email),
                 new Claim(ClaimTypes.Role, role) // הוספת תפקיד
             }),
-                Expires = DateTime.UtcNow.AddHours(3), // הזמן תפוגה של 3 שעות
+                Expires = DateTime.UtcNow.AddHours(5),
+                Issuer = "http://localhost:5037",
+                Audience = "http://localhost:5037", // הזמן תפוגה של 3 שעות
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 

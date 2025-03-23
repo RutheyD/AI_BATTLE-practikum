@@ -4,7 +4,8 @@ import { getUserNameByToken } from './store/getFromToken';
 
 const Home = () => {
   const navigate = useNavigate();
-  const userName = getUserNameByToken();
+  const userName = getUserNameByToken()||null;
+console.log("userName "+userName);
 
   return (
     <> 
@@ -29,7 +30,7 @@ const Home = () => {
           }}
         >
           <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 3, color: '#000', fontSize: '2.5rem' }}>
-            Welcome  {userName ? `${userName} to AI Battle! 🚀🎨` : 'to AI Battle! 🚀🎨'}
+           {userName!=-1 ? `${userName}, welcome to AI Battle! 🚀🎨` : 'Welcome to AI Battle! 🚀🎨'}
           </Typography>
 
           <Typography variant="h6" sx={{ mb: 3, color: '#000', fontSize: '1.8rem' }}>

@@ -58,10 +58,12 @@ builder.Services.AddScoped<IVoteService, VoteService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IWinnerRepository, WinnerRepository>();
 builder.Services.AddScoped<IWinnerService, WinnerService>();
-builder.Services.AddDbContext<DataContext>();
+//builder.Services.AddDbContext<DataContext>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddHostedService<ChallengeExpirationJob>();
-
+builder.Services.AddDbContext<DataContext>(options =>
+options.UseMySql(builder.Configuration["ConnectionStrings:DefaultConnection"],
+new MySqlServerVersion(new Version(8, 0, 41))));
 //builder.Services.AddDbContext<DataContext>(options =>
 //{
 //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -72,12 +74,12 @@ builder.Services.AddHostedService<ChallengeExpirationJob>();
 //    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
 //        new MySqlServerVersion(new Version(8, 0, 21)));
 //});
-builder.Services.AddDbContext<DataContext>((serviceProvider, options) =>
-{
-    var configuration = serviceProvider.GetRequiredService<IConfiguration>();
-    options.UseMySql(configuration.GetConnectionString("ConnectionStrings:DefaultConnection"),
-        new MySqlServerVersion(new Version(8, 0, 21)));
-});
+//builder.Services.AddDbContext<DataContext>((serviceProvider, options) =>
+//{
+//    var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+//    options.UseMySql(configuration.GetConnectionString("ConnectionStrings:DefaultConnection"),
+//        new MySqlServerVersion(new Version(8, 0, 21)));
+//});
 //builder.Services.AddDbContext<Data.DataContext>(options =>
 //    options.UseMySql("server=localhost;database=competition;user=root;password=1qaz2wsx!QAZ@WSX",
 //        new MySqlServerVersion(new Version(8, 0, 21))));

@@ -12,26 +12,30 @@ namespace Data
 {
     public class DataContext:DbContext
     {
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         
         public DbSet<User> Users { get; set; }
         public DbSet<Challenge> Challenges { get; set; }
         public DbSet<Vote> Votes { get; set; }
         public DbSet<Winner> Winners { get; set; }
         public DbSet<Image> Images { get; set; }
-        private readonly IConfiguration _configuration;
 
-        public DataContext(DbContextOptions<DataContext> options, IConfiguration configuration)
-            : base(options)
-        {
-            _configuration = configuration;
-        }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            // קבלת ה-ConnectionString מהקונפיגורציה
-            var connectionString = _configuration.GetConnectionString("ConnectionStrings:DefaultConnection");
-            optionsBuilder.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 21)));
-        }
+
+        //private readonly IConfiguration _configuration;
+
+        //public DataContext(DbContextOptions<DataContext> options, IConfiguration configuration)
+        //    : base(options)
+        //{
+        //    _configuration = configuration;
+        //}
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    // קבלת ה-ConnectionString מהקונפיגורציה
+        //    var connectionString = _configuration.GetConnectionString("ConnectionStrings:DefaultConnection");
+        //    optionsBuilder.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 21)));
+        //}
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Competition1");

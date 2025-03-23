@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 80
 
-# תמונת הבנייה של .NET 8
+# שלב הבנייה
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["AuthServer/AuthServer/AiBattle.API.csproj", "AuthServer/AuthServer/"]
