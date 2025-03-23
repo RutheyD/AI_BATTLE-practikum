@@ -6,7 +6,7 @@ EXPOSE 80
 # שלב הבנייה
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["AiBattle.API.csproj", "AuthServer/"]
+COPY ["AuthServer/AiBattle.API.csproj", "AuthServer/"]
 RUN dotnet restore "AuthServer/AiBattle.API.csproj"
 COPY . . 
 WORKDIR "/src/AuthServer"
