@@ -7,17 +7,15 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# העתקת כל הקבצים של הפרויקט (ולא רק את ה-.csproj)
-COPY AuthServer/AuthServer/ /src/AuthServer/AuthServer/
+# מעתיק רק את קובץ הפרויקט תחילה כדי לנצל caching
+COPY ["AiBattle.API.csproj", "./"]
+RUN dotnet restore "./AiBattle.API.csproj"
 
-# שחזור התלויות של הפרויקט
-WORKDIR /src/AuthServer/AuthServer
-RUN dotnet restore "AiBattle.API.csproj"
-
-# בניית הפרויקט
+# מעתיקים את כל שאר קבצי הפרויקט
+COPY . . 
+WORKDIR "/src"
 RUN dotnet build "AiBattle.API.csproj" -c Release -o /app/build
 
-# שלב הפרסום
 FROM build AS publish
 RUN dotnet publish "AiBattle.API.csproj" -c Release -o /app/publish
 
@@ -26,5 +24,5 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-# הפעלת השרת
+# קביעת הפקודה להרצת השרת
 ENTRYPOINT ["dotnet", "AiBattle.API.dll"]
