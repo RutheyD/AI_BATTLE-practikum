@@ -13,7 +13,7 @@ WORKDIR "/src/AuthServer"
 RUN dotnet build "AiBattle.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "AuthServer/AiBattle.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "AuthServer/AuthServer/AiBattle.API.csproj" -c Release -o /app/publish
 
 # בניית האפליקציה
 FROM base AS final
