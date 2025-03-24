@@ -3,16 +3,16 @@ import axios from "axios";
 import { ChallengeType } from "../models/challenge";
 import { TopImageType } from "../models/topImage";
 import { RootState } from "./store";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export const getTopImagesByChallenge = createAsyncThunk(
   'topImagesByChallenge/get',
   async (_, thunkApi) => {
     try {
-      const res = await axios.get(`http://localhost:5037/api/Challenge/finished`);
+      const res = await axios.get(`${API_BASE_URL}/api/Challenge/finished`);
       const challenges = res.data as ChallengeType[];
       const challengesWithImages = await Promise.all(
         challenges.map(async (challenge) => {
-          const imageRes = await axios.get(`http://localhost:5037/api/Image/top/challenge/${challenge.id}`);
+          const imageRes = await axios.get(`${API_BASE_URL}/api/Image/top/challenge/${challenge.id}`);
           const topImage = imageRes.data
           return {
             id: topImage.id,

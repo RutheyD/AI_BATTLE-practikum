@@ -3,9 +3,10 @@ import axios from "axios";
 import { ChallengeType } from "../models/challenge";
 import { RootState } from "./store";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export const getChallenges = createAsyncThunk('challenges/get', async (_, thunkApi) => {
     try {
-        const res = await axios.get(`http://localhost:5037/api/Challenge/challenges`);
+        const res = await axios.get(`${API_BASE_URL}/api/Challenge/challenges`);
         return res.data as ChallengeType[];
     } catch (error) {
         return thunkApi.rejectWithValue(error);
@@ -14,7 +15,7 @@ export const getChallenges = createAsyncThunk('challenges/get', async (_, thunkA
 
 export const getChallengeById = createAsyncThunk('challengeId/get', async (challengeId: number, thunkApi) => {
     try {
-        const res = await axios.get(`http://localhost:5037/api/Challenge/${challengeId}`)
+        const res = await axios.get(`${API_BASE_URL}/api/Challenge/${challengeId}`)
         return res.data as ChallengeType;
     } catch (error) {
         return thunkApi.rejectWithValue(error);

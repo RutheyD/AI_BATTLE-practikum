@@ -276,6 +276,7 @@ import axios from 'axios';
 import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const ShowChallenge = () => {
   const { id } = useParams();
   const dispatch = useDispatch<AppDispatch>();
@@ -289,7 +290,7 @@ const ShowChallenge = () => {
 
   const handleDownload = async (fileName: string) => {
     try {
-      const response = await axios.get('http://localhost:5037/api/Image/getUrl', {
+      const response = await axios.get(`${API_BASE_URL}/api/Image/getUrl`, {
         params: { fileName },
       });
 

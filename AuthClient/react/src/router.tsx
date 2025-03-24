@@ -25,18 +25,4 @@ export const router = createBrowserRouter([
       }
 ])
 
-  // {
-    //     path: '/',
-    //     element: <AppLayout />,
-    //     children: [
-    //         { path: 'allChallenges', element: <AllChallenges /> },
-    //         {
-    //             path: 'allChallenges', element: <AllChallenges />,
-    //             children: [
-    //                 {
-    //                     path: ':id',
-    //                     element:<ShowChallenge/>
-    //                 }]
-    //         },
-    //     ]
-    // }
+ 

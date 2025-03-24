@@ -94,6 +94,7 @@ import axios from "axios";
 import { getUserIdByToken } from "../store/getFromToken";
 import { Box, Button, LinearProgress, Card, CardMedia } from "@mui/material";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const FileUploader = ({ idChallenge }:{idChallenge:number}) => {
   const [file, setFile] = useState<File | null>(null);
@@ -114,7 +115,7 @@ const FileUploader = ({ idChallenge }:{idChallenge:number}) => {
   const handleUpload = async () => {
     if (!file) return;
     try {
-      const response = await axios.get("http://localhost:5037/api/Image/presigned-url", {
+      const response = await axios.get(`${API_BASE_URL}/api/Image/presigned-url`, {
         params: { fileName: file.name, contentType: file.type, challengeId: idChallenge },
         headers: { "Content-Type": file.type, Authorization: `Bearer ${token}` },
       });
@@ -131,7 +132,7 @@ const FileUploader = ({ idChallenge }:{idChallenge:number}) => {
       });
 
       const imageData = { imageUrl, userId: getUserIdByToken(), challengeId: idChallenge, fileName: file.name };
-      await axios.post("http://localhost:5037/api/Image/upload/image", imageData, {
+      await axios.post(`${API_BASE_URL}/api/Image/upload/image`, imageData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("הקובץ הועלה בהצלחה!");

@@ -3,9 +3,10 @@ import axios from "axios";
 import { ImageType } from "../models/images";
 import { RootState } from "./store";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export const getImageByChallengeId=createAsyncThunk('imagesByChallengeId/get',async(challengeId:number,thunkApi)=>{
     try{
-const res=await axios.get(`http://localhost:5037/api/Image/challenge/${challengeId}`);
+const res=await axios.get(`${API_BASE_URL}/api/Image/challenge/${challengeId}`);
 return res.data as ImageType[]
     }catch(error){
 return thunkApi.rejectWithValue(error);
@@ -16,7 +17,7 @@ return thunkApi.rejectWithValue(error);
 export const addVote=createAsyncThunk('postVote/post',async({ userId, imageId ,challengeId}: { userId: number; imageId: number,challengeId:number },thunkApi)=>{
     try {
         const token =sessionStorage.getItem('token')
-        const res = await axios.post(`http://localhost:5037/api/Vote`, {
+        const res = await axios.post(`${API_BASE_URL}/api/Vote`, {
             userId,
             imageId
         },
@@ -35,7 +36,7 @@ export const deleteVote=createAsyncThunk('deleteVote/delete',async({ userId, ima
 try{
     const token =sessionStorage.getItem('token')
 
-    const res = await axios.delete(`http://localhost:5037/api/Vote/deleteVote`, {
+    const res = await axios.delete(`${API_BASE_URL}/api/Vote/deleteVote`, {
         data: { userId, imageId } ,  headers: {
          Authorization: `Bearer ${token}`
    },});
