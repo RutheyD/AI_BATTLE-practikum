@@ -13,7 +13,6 @@ return thunkApi.rejectWithValue(error);
     }
 })
 
-// const res=await axios.post(`http://localhost:5070/api/Image/CountVotes/${imageId}`);
 export const addVote=createAsyncThunk('postVote/post',async({ userId, imageId ,challengeId}: { userId: number; imageId: number,challengeId:number },thunkApi)=>{
     try {
         const token =sessionStorage.getItem('token')
@@ -40,8 +39,7 @@ try{
         data: { userId, imageId } ,  headers: {
          Authorization: `Bearer ${token}`
    },});
-    // getImageByChallengeId(challengeId);
-    // return res.data;
+ 
     const updatedImages = await thunkApi.dispatch(getImageByChallengeId(challengeId)).unwrap();
     return updatedImages;
 }catch(error){
@@ -75,7 +73,7 @@ export const imageSlice=createSlice({
             .addCase(addVote.fulfilled, (state, action: PayloadAction<ImageType[]>) => {
                 state.loading = false;
                 state.error = null;
-                state.imagesByChallenge = action.payload; // עדכון התמונות לאחר הצבעה
+                state.imagesByChallenge = action.payload; 
             })
             .addCase(addVote.rejected, (state) => {
                 state.loading = false;
@@ -88,7 +86,7 @@ export const imageSlice=createSlice({
             .addCase(deleteVote.fulfilled, (state, action: PayloadAction<ImageType[]>) => {
                 state.loading = false;
                 state.error = null;
-                state.imagesByChallenge = action.payload; // עדכון התמונות לאחר מחיקת הצבעה
+                state.imagesByChallenge = action.payload; 
             })
             .addCase(deleteVote.rejected, (state) => {
                 state.loading = false;
@@ -100,6 +98,5 @@ export const imageSlice=createSlice({
 export const selectImagesByChallenge=(state:RootState)=>state.iamges.imagesByChallenge;
 export const selectAddVote=(state:RootState)=>state.iamges.imagesByChallenge;
 export const selectDeleteVote=(state:RootState)=>state.iamges.imagesByChallenge;
-// export const selectImages(state:RootState)=>state.iamges.imagesByChallenge
 export const{actions}=imageSlice;
 export default imageSlice;

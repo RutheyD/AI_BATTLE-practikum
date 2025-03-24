@@ -217,7 +217,7 @@ const validationSchema = Yup.object({
   fullName: Yup.string().required("Full name is required"),
   email: Yup.string().email("Invalid email format").required("Email is required"),
 });
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Update = () => {
   const [open, setOpen] = useState(true);
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -235,7 +235,7 @@ const Update = () => {
 
       try {
         const res = await axios.put(
-          `http://localhost:5037/api/User/${+userId}`,
+          `${API_BASE_URL}/api/User/${+userId}`,
           {
             Email: values.email,
             Name: values.fullName,
