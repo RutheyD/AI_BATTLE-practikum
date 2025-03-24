@@ -16,7 +16,7 @@ return thunkApi.rejectWithValue(error);
 export const addVote=createAsyncThunk('postVote/post',async({ userId, imageId ,challengeId}: { userId: number; imageId: number,challengeId:number },thunkApi)=>{
     try {
         const token =sessionStorage.getItem('token')
-        const res = await axios.post(`${API_BASE_URL}/api/Vote`, {
+       /* const res =*/ await axios.post(`${API_BASE_URL}/api/Vote`, {
             userId,
             imageId
         },
@@ -35,7 +35,7 @@ export const deleteVote=createAsyncThunk('deleteVote/delete',async({ userId, ima
 try{
     const token =sessionStorage.getItem('token')
 
-    const res = await axios.delete(`${API_BASE_URL}/api/Vote/deleteVote`, {
+    /*const res =*/ await axios.delete(`${API_BASE_URL}/api/Vote/deleteVote`, {
         data: { userId, imageId } ,  headers: {
          Authorization: `Bearer ${token}`
    },});

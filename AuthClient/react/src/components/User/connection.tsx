@@ -14,6 +14,8 @@ import Register from "./register";
   
     const handleChange = (event: SyntheticEvent, newIndex: number) => {
       setTabIndex(newIndex);
+      console.log(event);
+      
     };
   
     return (
