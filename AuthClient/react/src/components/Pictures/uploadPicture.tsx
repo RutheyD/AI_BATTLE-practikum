@@ -92,7 +92,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { getUserIdByToken } from "../store/getFromToken";
-import { Box, Button, Typography, LinearProgress, Card, CardMedia } from "@mui/material";
+import { Box, Button, LinearProgress, Card, CardMedia } from "@mui/material";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const FileUploader = ({ idChallenge }:{idChallenge:number}) => {

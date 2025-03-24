@@ -1,13 +1,14 @@
-import { Box, Button } from "@mui/material"
+import { IconButton } from "@mui/material"
 import { getUserIdByToken } from "../store/getFromToken"
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../redux/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../redux/store";
 import { addVote, deleteVote } from "../redux/imageSlice";
 import { useState } from "react";
-import { color } from "framer-motion";
+import { CaretUpOutlined,CaretDownOutlined } from '@ant-design/icons';
 
 const Vote=({imageId,challengeId}:{imageId:number,challengeId:number})=>{
 const userId=getUserIdByToken()
+
 const dispatch=useDispatch<AppDispatch>();
 // const vote=useSelector((state:RootState)=>state.iamges.imagesByChallenge);
 // const deleteVote=useSelector((state:RootState)=>state.iamges.imagesByChallenge);
@@ -32,7 +33,8 @@ setIsVote(!isVote)
 }
 /*☝️*/
 return(<>
-<Button onClick={clickVote} disabled={token==null} style={{color:isVote?'orange':'black'}} >+</Button>
+<IconButton onClick={clickVote} disabled={token==null}style={{color:isVote?'orange':'black',fontWeight:"bold",fontSize:"50px"}}>{isVote?<CaretUpOutlined />:<CaretDownOutlined />}</IconButton>
+{/* <Button onClick={clickVote} disabled={token==null}  style={{color:isVote?'orange':'black',fontWeight:"bold"}}></Button> */}
 {/* <Box></Box> */}
 {/* <Button onClick={clickDeleteVote}>👇</Button> */}
 </>)

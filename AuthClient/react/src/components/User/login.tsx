@@ -619,7 +619,6 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-// הוספת interceptor לאקסיוס כדי לא להדפיס שגיאות בקונסול
 axios.interceptors.response.use(
   (response) => response, // השגיאה לא תעבור לקונסול
   (error) => {
@@ -667,9 +666,7 @@ const Login = ({ succeedFunc }: { succeedFunc: Function }) => {
       
         if (e.response) {
           // בדוק אם ה-response כולל שדה title
-          const status = e.response.status;
-          console.log("status 0000000000000"+status);
-          
+          const status = e.response.status;      
           const message = e.response.data?.title || "An error occurred. Please try again later.";  // השתמש ב-title אם קיים
       
           if (status === 401) {

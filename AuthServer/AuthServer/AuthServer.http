@@ -1,4 +1,4 @@
-@AuthServer_HostAddress = http://localhost:5037
+@AuthServer_HostAddress = https://ai-battle.onrender.com
 
 GET {{AuthServer_HostAddress}}/weatherforecast/
 Accept: application/json

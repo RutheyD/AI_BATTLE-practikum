@@ -4,6 +4,7 @@ import AllChallenges from "./components/challenges/allChallenges";
 import ShowChallenge from "./components/challenges/showChallenge";
 import Home from "./components/home";
 import Connect from "./components/connect";
+import WinnersImages from "./components/challenges/winnersImages";
 
 export const router = createBrowserRouter([
   
@@ -17,7 +18,9 @@ export const router = createBrowserRouter([
           {
             path: 'allChallenges/:id', // הכנס את ה-id בתוך ה-path של האתגר
             element: <ShowChallenge />
-          }
+          },
+          { path: 'winners', element: <WinnersImages /> },
+          
         ]
       }
 ])

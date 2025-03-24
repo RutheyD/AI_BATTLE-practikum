@@ -183,12 +183,14 @@
 // };
 
 // export default Connect;
+
+
+
 ///////////
 import { Button, Typography, Box } from "@mui/material";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Connection from "./User/connection";
-import { getUserNameByToken } from "./store/getFromToken";
 
 const backgroundImages = [
     
@@ -197,8 +199,8 @@ const backgroundImages = [
     // "../../public/assets/robot.png",
     // "../../public/assets/win.jpeg",
     // "../../public/assets/win1.jpeg",
-    // "../../public/assets/hands.png",
-    // "../../public/assets/robot2.jpg",
+    "../../public/assets/circle.jpg",
+    "../../public/assets/AI.jpg",
     "../../public/assets/root2.jpg",
 
   

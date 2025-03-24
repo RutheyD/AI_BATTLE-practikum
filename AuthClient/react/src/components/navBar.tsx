@@ -512,23 +512,21 @@
 // export default NavBar;
 
 import { AppBar, Box, Toolbar, Typography, Button, IconButton, Avatar, Menu, MenuItem, Container } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
-import MenuIcon from "@mui/icons-material/Menu";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import md5 from "md5";
 import { getUserEmailByToken, getUserNameByToken } from "./store/getFromToken";
 import Update from "./User/update";
 
-const pages = ['Connect', 'Home', 'Challenges'];
+const pages = ['Connect', 'Home', 'Challenges','Winners'];
 const settings = ['Profile', 'Logout'];
 
 const NavBar = () => {
   const location = useLocation();
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const [hasImageError, setHasImageError] = useState(false);
   const [isUpdate, setIsUpdate] = useState(false);
-
+  const navigate = useNavigate();
   const userEmail = getUserEmailByToken();
   const userName = getUserNameByToken();
   const token = sessionStorage.getItem('token');
@@ -541,6 +539,8 @@ const NavBar = () => {
 
   const handleLogout = () => {
     sessionStorage.removeItem('token');
+    navigate('/home')
+    
   };
 
   const gravatarUrl = userEmail
@@ -565,11 +565,11 @@ const NavBar = () => {
                   component={Link}
                   to={`/${page.toLowerCase()}`}
                   sx={{
-                    color: isActive ? "rgba(138, 140, 255, 0.8)" : "rgba(255, 64, 129, 0.8)", // כחול לעמוד פעיל, ורוד לאחרים
+                    color: isActive ? "rgba(138, 140, 255, 0.8)" : "rgba(255, 64, 129, 0.8)", 
                     textTransform: "none",
                     fontWeight: "bold",
                     fontSize: "18px",
-                    "&:hover": { color: "rgba(138, 140, 255, 0.8)" }, // כחול-תכלת במעבר עכבר
+                    "&:hover": { color: "rgba(138, 140, 255, 0.8)" }, 
                   }}
                 >
                   {page}

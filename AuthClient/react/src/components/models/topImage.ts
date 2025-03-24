@@ -1,4 +1,3 @@
-import { ImageType } from "./images"
 
 export type TopImageType = {
 
