@@ -71,10 +71,10 @@ namespace Service
 
         public EmailService(IConfiguration configuration)
         {
-            _smtpServer = Environment.GetEnvironmentVariable("SMTP_SERVER");
-            _port = int.Parse(Environment.GetEnvironmentVariable("SMTP_PORT"));
-            _senderEmail = Environment.GetEnvironmentVariable("SMTP_SENDER_EMAIL");
-            _senderPassword = Environment.GetEnvironmentVariable("SMTP_SENDER_PASSWORD");
+            _smtpServer = Environment.GetEnvironmentVariable("EMAILSETTINGS_SMTPSERVER");
+            _port = int.Parse(Environment.GetEnvironmentVariable("EMAILSETTINGS_PORT"));
+            _senderEmail = Environment.GetEnvironmentVariable("EMAILSETTINGS_SENDEREMAIL");
+            _senderPassword = Environment.GetEnvironmentVariable("EMAILSETTINGS_SENDERPASSWORD");
         }
 
         public async Task SendEmailAsync(string to, string subject, string body)
