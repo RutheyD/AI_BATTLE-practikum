@@ -39,7 +39,7 @@ const NavBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography variant="h6" component="a" href="#home" sx={{ mr: 2, fontFamily: "monospace", fontWeight: 700 }}>
-            <img src="../../public/assets/logo2.jpg" alt="AI BATTLE Logo" style={{ height: "50px", position: "absolute",top:"8px",left:"30px" }} />
+            <img src={`${process.env.PUBLIC_URL}/assets/logo2.jpg`} alt="AI BATTLE Logo" style={{ height: "50px", position: "absolute",top:"8px",left:"30px" }} />
           </Typography>
 
           {/* קישורים לדפים */}
