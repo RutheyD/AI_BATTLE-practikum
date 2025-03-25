@@ -57,8 +57,12 @@ builder.Services.AddScoped<IWinnerService, WinnerService>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddHostedService<ChallengeExpirationJob>();
 builder.Services.AddDbContext<DataContext>(options =>
-options.UseMySql(builder.Configuration["ConnectionStrings:DefaultConnection"],
-new MySqlServerVersion(new Version(8, 0, 41))));
+    options.UseMySql(Environment.GetEnvironmentVariable("CONNECTIONSTRINGS_DEFAULTCONNECTION"),
+    new MySqlServerVersion(new Version(8, 0, 41))));
+
+//builder.Services.AddDbContext<DataContext>(options =>
+//options.UseMySql(builder.Configuration["ConnectionStrings:DefaultConnection"],
+//new MySqlServerVersion(new Version(8, 0, 41))));
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
