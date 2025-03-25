@@ -89,7 +89,7 @@ namespace Service
         {
 
 
-            return await _imageRepository.CanUploadImageAsync( userId, challengeId);
+            return await _imageRepository.CanUploadImageAsync(userId, challengeId);
 
         }
     }
