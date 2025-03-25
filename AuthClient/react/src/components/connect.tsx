@@ -6,14 +6,14 @@ import Connection from "./User/connection";
 
 const backgroundImages = [
     
-    // "../../public/assets/robot2.jpg",
-    // "../../public/assets/brain.png",
-    // "../../public/assets/robot.png",
-    // "../../public/assets/win.jpeg",
-    // "../../public/assets/win1.jpeg",
-    "../../public/assets/circle.jpg",
-    "../../public/assets/AI.jpg",
-    "../../public/assets/root2.jpg",
+    // "/assets/robot2.jpg",
+    // "/assets/brain.png",
+    // "/assets/robot.png",
+    // "/assets/win.jpeg",
+    // "/assets/win1.jpeg",
+    "/assets/circle.jpg",
+    "/assets/AI.jpg",
+    "/assets/root2.jpg",
 
   
   

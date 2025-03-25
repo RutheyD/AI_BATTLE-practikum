@@ -101,8 +101,14 @@ builder.Services.AddAuthentication(options =>
 //        };
 //    });
 
-
-builder.Services.AddCors();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("https://ai-battle-users.onrender.com")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod());
+});
+//builder.Services.AddCors();
 var app = builder.Build();
 
 
