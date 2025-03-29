@@ -18,12 +18,12 @@ namespace Service
             var accessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY");
             var secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_KEY");
             var region = Environment.GetEnvironmentVariable("AWS_REGION");
-           string _bucketName = Environment.GetEnvironmentVariable("AWS_BUCKET_NAME");
+            _bucketName = Environment.GetEnvironmentVariable("AWS_BUCKET_NAME");
 
             _s3Client = new AmazonS3Client(accessKey, secretKey, Amazon.RegionEndpoint.GetBySystemName(region));
         }
 
-        public async string GetPresignedUrlAsync(string fileName, string contentType)
+        public async Task<string> GetPresignedUrlAsync(string fileName, string contentType)
         {
             var request = new GetPreSignedUrlRequest
             {
@@ -34,7 +34,9 @@ namespace Service
                 ContentType = contentType
             };
 
-            return _s3Client.GetPreSignedURL(request);
+            //return _s3Client.GetPreSignedURL(request);
+            return await Task.FromResult(_s3Client.GetPreSignedURL(request));
+
         }
 
         public async Task<string> GetDownloadUrlAsync(string fileName)
@@ -47,7 +49,9 @@ namespace Service
                 Expires = DateTime.UtcNow.AddMinutes(30) 
             };
 
-            return _s3Client.GetPreSignedURL(request);
+            //return _s3Client.GetPreSignedURL(request);
+            return await Task.FromResult(_s3Client.GetPreSignedURL(request));
+
         }
 
         public async Task DeleteFileAsync(string fileUrl)
