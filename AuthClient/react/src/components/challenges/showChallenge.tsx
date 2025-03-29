@@ -1,6 +1,6 @@
 import { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {  Grid, Card,  CardContent, Typography,  IconButton, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import {  Grid, Card,  Typography,  IconButton, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import { AppDispatch, RootState } from '../redux/store';
 import { getImageByChallengeId } from '../redux/imageSlice';
 import { useParams } from 'react-router';
