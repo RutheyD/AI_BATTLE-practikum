@@ -101,6 +101,7 @@ builder.Services.AddAuthentication(options =>
 //        };
 //    });
 
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
@@ -108,6 +109,7 @@ builder.Services.AddCors(options =>
                           .AllowAnyHeader()
                           .AllowAnyMethod());
 });
+
 //builder.Services.AddCors();
 var app = builder.Build();
 
@@ -120,7 +122,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+app.UseCors("AllowSpecificOrigin");
+
 
 app.UseAuthentication();
 app.UseAuthorization();
