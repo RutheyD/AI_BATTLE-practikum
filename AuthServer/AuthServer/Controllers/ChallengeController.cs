@@ -23,7 +23,6 @@ namespace AiBattle.API.Controllers
             _mapper = mapper;
         }
 
-        // יצירת אתגר חדש
         [HttpPost("create")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateChallenge([FromBody] ChallengeDTO challengeDto)
@@ -39,30 +38,23 @@ namespace AiBattle.API.Controllers
             var challengeDtos = _mapper.Map<IEnumerable<ChallengeDTO>>(challenges);
             return Ok(challengeDtos);
         }
-        // הצגת אתגרים פעילים
         [HttpGet("active")]
         public async Task<IActionResult> GetActiveChallenges()
         {
             var challenges = await _challengeService.GetActiveChallengesAsync();
             var challengeDtos = _mapper.Map<IEnumerable<ChallengeDTO>>(challenges);
             return Ok(challengeDtos);
-            
+
         }
 
-        // הצגת אתגרים קודמים
         [HttpGet("finished")]
         public async Task<IActionResult> GetFinishedChallenges()
         {
-            //var challenges = await _challengeService.GetFinishedChallengesAsync();
-            //var challengeDtos = _mapper.Map<IEnumerable<ChallengeDTO>>(challenges);
-            //return Ok(challengeDtos)
+
             var challenges = await _challengeService.GetFinishedChallengesAsync();
-            //var challengeDtos = _mapper.Map<IEnumerable<ChallengeDto>>(challenges);
             return Ok(challenges);
-            //return Ok(challengeDtos;
         }
 
-        // הצגת תיאור של אתגר
         [HttpGet("{id}")]
         public async Task<IActionResult> GetChallengeById(int id)
         {
@@ -74,7 +66,6 @@ namespace AiBattle.API.Controllers
             return Ok(challengeDto);
         }
 
-        // עדכון סטטוס אתגר
         [HttpPut("{id}/update-status")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateChallengeStatus(int id)

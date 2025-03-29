@@ -14,13 +14,7 @@ namespace Core.IRepositories
         Task<User> UpdateUserAsync(User user);
         Task<bool> AddUserAsync(User user);
         Task<User> GetUserByEmailAsync(string email);
-        //Task<User> RegisterUserAsync(string name, string email, string password, ERole role);
          Task<User> RegisterUserAsync(User user);
-        //public void UpdateUser(User user,int ID);
-        //public void DeleteUser(int id); 
-        //public void AddUser(User user);
-
-        //public User GetByUserName(string userName);
-        //public User GetByEmail(string email);
+ 
     }
 }

@@ -10,7 +10,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Data.Repositories
 {
-    public class VoteRepository: IVoteRepository
+    public class VoteRepository : IVoteRepository
     {
         private readonly DataContext _context;
         public VoteRepository(DataContext context)
@@ -21,13 +21,11 @@ namespace Data.Repositories
 
         public async Task<Vote> VoteImageAsync(int userId, int imageId)
         {
-            // בדיקה אם המשתמש כבר הצביע לתמונה הזאת
             var existingVote = await _context.Votes
                 .FirstOrDefaultAsync(v => v.UserId == userId && v.ImageId == imageId);
 
             if (existingVote != null)
             {
-                // אם כבר יש הצבעה, מחזירים error
                 return null;
             }
 
@@ -40,7 +38,6 @@ namespace Data.Repositories
 
             await _context.Votes.AddAsync(vote);
 
-            // עדכון ספירת ההצבעות בתמונה
             var image = await _context.Images.FirstOrDefaultAsync(i => i.ID == imageId);
             if (image != null)
             {
@@ -57,7 +54,7 @@ namespace Data.Repositories
                             .FirstOrDefaultAsync(v => v.UserId == userId && v.ImageId == imageId);
             if (vote == null)
             {
-                return false; // לא נמצא הצבעה
+                return false;
             }
             var image = await _context.Images.FirstOrDefaultAsync(i => i.ID == imageId);
             if (image != null)
@@ -67,7 +64,7 @@ namespace Data.Repositories
             }
             _context.Votes.Remove(vote);
             await _context.SaveChangesAsync();
-            return true; // הצבעה נמחקה בהצלחה
+            return true;
         }
         public async Task<bool> IsSelfVotingAsync(int imageId, int userId)
         {

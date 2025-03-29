@@ -13,18 +13,19 @@ using System.Data;
 
 namespace Service
 {
-    public class UserService: IUserService
+    public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
         public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
-       public async Task<List<User>> GetAllUsersAsync() { 
+        public async Task<List<User>> GetAllUsersAsync()
+        {
 
 
             return await _userRepository.GetAllUsersAsync();
-             
+
 
         }
         public async Task<User> GetUserByEmailAsync(string email)
@@ -44,76 +45,12 @@ namespace Service
         {
             return await _userRepository.UpdateUserAsync(user);
         }
-        //public async Task<User> GetUserByIdAsync(int userId)
-        //{
-        //    var user = await _userRepository.GetUserByIdAsync(userId);
-        //    if (user == null)
-        //        return null;
 
-
-        //}
-        //public async Task<string> RegisterUserAsync(string email, string password, string role)
-        //{
-        //    // 1. רישום משתמש במסד נתונים
-        //    var user = await _userRepository.RegisterUserAsync(email, password, role);
-
-        //    // 2. יצירת JWT Token למשתמש לאחר ההרשמה
-        //    var token = JWTHelper.GenerateJwtToken(user.Id, user.Email, user.Role);
-
-        //    return token;
-        //}
-        //public async Task<string> RegisterUserAsync(string name, string email, string password, string role)
-        //{
-        //    // המרת ה-role מ-string ל-enum
-        //    if (!Enum.TryParse(role, true, out ERole userRole))
-        //    {
-        //        throw new ArgumentException("Invalid role provided.");  // אם ההמרה לא הצליחה, זורקים שגיאה
-        //    }
-
-        //    // רישום המשתמש
-        //    var user = await _userRepository.RegisterUserAsync(name, email, password, userRole);
-
-        //    // יצירת טוקן JWT לאחר רישום
-        //    var token = JWTHelper.GenerateJwtToken(user.ID, user.Name, user.Email, userRole.ToString());
-
-        //    return token;
-
-        //}
-        //public async Task<RegisterResponseDTO> RegisterUserAsync(User user)
-        //{
-        //    // רישום המשתמש
-        //    var newUser = await _userRepository.RegisterUserAsync(user);
-
-        //    // יצירת טוקן JWT
-        //    var token = JWTHelper.GenerateJwtToken(newUser.ID, newUser.Name, newUser.Email, newUser.Role.ToString());
-
-        //    // החזרת ה-DTO עם הטוקן שנוצר
-        //    var userResponseDTO = new RegisterResponseDTO
-        //    {
-        //        Id = newUser.ID,
-        //        Name = newUser.Name,
-        //        Email = newUser.Email,
-        //        Token = token
-        //    };
-
-        //    return userResponseDTO;
-        //}
         public async Task<string> RegisterUserAsync(User user)
         {
-            // רישום המשתמש
             var newUser = await _userRepository.RegisterUserAsync(user);
 
-            // יצירת טוקן JWT
             var token = JWTHelper.GenerateJwtToken(newUser.ID, newUser.Name, newUser.Email, newUser.Role.ToString());
-
-            // החזרת ה-DTO עם הטוקן שנוצר
-            //var userResponseDTO = new RegisterResponseDTO
-            //{
-            //    Id = newUser.ID,
-            //    Name = newUser.Name,
-            //    Email = newUser.Email,
-            //    Token = token
-            //};
 
             return token;
         }
@@ -122,9 +59,9 @@ namespace Service
             if (user != null)
             {
                 user.CreatedAt = DateTime.Now;
-                if (await _userRepository.GetUserByEmailAsync(user.Email)!=null)
+                if (await _userRepository.GetUserByEmailAsync(user.Email) != null)
                 {
-                    return false; // Email already exists, do not add user
+                    return false;
                 }
                 user.Role = ERole.User;
                 user.PasswordHash = PasswordHelper.HashPassword(user.PasswordHash);
@@ -152,5 +89,5 @@ namespace Service
             return true;
         }
     }
-    
+
 }

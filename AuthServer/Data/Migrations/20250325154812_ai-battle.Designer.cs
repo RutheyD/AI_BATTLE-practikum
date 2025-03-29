@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250323145200_AI_BATTLE")]
-    partial class AI_BATTLE
+    [Migration("20250325154812_ai-battle")]
+    partial class aibattle
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

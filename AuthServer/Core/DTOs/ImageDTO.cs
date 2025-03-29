@@ -9,9 +9,7 @@ namespace Core.DTOs
 {
     public class ImageDTO
     {
-        //public int UserId { get; set; }
-        //public int ChallengeId { get; set; }
-        //public string ImageURL { get; set; }
+       
         public int Id { get; set; }
         public int UserId { get; set; }
         public int ChallengeId { get; set; }

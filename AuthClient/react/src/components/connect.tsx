@@ -6,17 +6,14 @@ import Connection from "./User/connection";
 
 const backgroundImages = [
     
-    // "/assets/robot2.jpg",
-    // "/assets/brain.png",
-    // "/assets/robot.png",
-    // "/assets/win.jpeg",
-    // "/assets/win1.jpeg",
+    "/assets/robot2.jpg",
+    "/assets/brain.png",
+    "/assets/robot.png",
+    "/assets/win.jpeg",
+    "/assets/win1.jpeg",
     "/assets/circle.jpg",
     "/assets/AI.jpg",
     "/assets/root2.jpg",
-
-  
-  
 ];
 const Connect = () => {
   const [isDialogOpen, setDialogOpen] = useState(false);
@@ -37,7 +34,6 @@ const Connect = () => {
         backgroundImage: `url(${currentImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        // opacity:"50%",
         height: "100vh",
         display: "flex",
         flexDirection: "column",
@@ -112,4 +108,3 @@ const Connect = () => {
 };
 
 export default Connect;
-/////////

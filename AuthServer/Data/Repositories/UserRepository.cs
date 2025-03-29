@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    public class UserRepository: IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly DataContext _context;
         public UserRepository(DataContext context)
@@ -24,7 +24,7 @@ namespace Data.Repositories
             return await _context.Users.ToListAsync();
         }
 
-      
+
         public async Task<User> GetUserByEmailAsync(string email)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
@@ -42,38 +42,19 @@ namespace Data.Repositories
         {
             var existingUser = await _context.Users.FindAsync(user.ID);
             if (existingUser == null)
-                return null; // או לזרוק שגיאה
+                return null;
 
             _context.Entry(existingUser).CurrentValues.SetValues(user);
             await _context.SaveChangesAsync();
             return existingUser;
         }
-        //public async Task<User> RegisterUserAsync(string name, string email, string password, ERole role)
-        //{
-        //    // הצפנת הסיסמה
-        //    var hashedPassword = PasswordHelper.HashPassword(password);
 
-        //    var user = new User
-        //    {
-        //        Name = name,
-        //        Email = email,
-        //        PasswordHash = hashedPassword,
-        //        Role = role
-        //    };
-
-        //    _context.Users.Add(user);
-        //    await _context.SaveChangesAsync();  // שמירה למסד נתונים
-
-        //    return user;
-        //}
         public async Task<User> RegisterUserAsync(User user)
         {
             _context.Users.Add(user);
-            await _context.SaveChangesAsync();  // שמירה למסד נתונים
+            await _context.SaveChangesAsync();
             return user;
         }
-        //public void UpdateUser(User user, int ID);
-        //public void DeleteUser(int id);
-        //public void AddUser(User user);
+
     }
 }

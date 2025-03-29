@@ -77,7 +77,7 @@ const AllChallenges = () => {
                                     )}
     
                                     <CardContent sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                                        <Avatar src="../../../public/assets/profile.jpg" alt="Avatar" />
+                                        <Avatar src="/assets/profile.jpg" alt="Avatar" />
                                         <Box>
                                             <Typography variant="h6" sx={{ fontWeight: "bold", color: "rgba(255, 64, 129, 0.8)" }}>
                                                 {challenge.title}

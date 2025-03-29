@@ -15,10 +15,10 @@ namespace Service
         private readonly IChallengeRepository _challengeRepository;
         private readonly IUserRepository _userRepository;
         private readonly IEmailService _emailService;
-        public ChallengeService(IChallengeRepository challengeRepository, IEmailService emailService,IUserRepository userRepository)
+        public ChallengeService(IChallengeRepository challengeRepository, IEmailService emailService, IUserRepository userRepository)
         {
             _challengeRepository = challengeRepository;
-            _emailService =emailService ;
+            _emailService = emailService;
             _userRepository = userRepository;
         }
         public async Task<Challenge> CreateChallengeAsync(ChallengeDTO challengeDto)

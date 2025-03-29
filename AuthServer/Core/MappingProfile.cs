@@ -16,23 +16,15 @@ namespace Core
         public MappingProfile()
         {
           
-
-            //CreateMap<User, UserDTO>().ReverseMap();
-
             CreateMap<Image, ImageDTO>().ReverseMap();
 
             CreateMap<Challenge, ChallengeDTO>().ReverseMap();
 
             CreateMap< User,RegisterRequestDTO>().ReverseMap();
-            //.ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => PasswordHelper.HashPassword(src.Password)));  // הצפנת הסיסמה
-            //.ForMember(dest => dest.Role, opt => opt.MapFrom(src => Enum.IsDefined(typeof(ERole), src.Role) ? (ERole)Enum.Parse(typeof(ERole), src.Role) : ERole.User));  // המרת Role מ-String ל-ERole
-
+            
             CreateMap< User,UpdateUserDTO>().ReverseMap();
             CreateMap< Vote,VoteDTO>().ReverseMap();
-               //.ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(src => string.IsNullOrEmpty(src.Password) ? null : PasswordHelper.HashPassword(src.Password)))
-               ////.ForMember(dest => dest.Role, opt => opt.MapFrom(src => Enum.IsDefined(typeof(ERole), src.Role) ? (ERole)Enum.Parse(typeof(ERole), src.Role) : ERole.User))
-               //.ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null)); // לא לעדכן ערכים ריקים
-
+              
         }
     }
 }

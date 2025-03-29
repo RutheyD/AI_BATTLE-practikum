@@ -11,17 +11,12 @@ namespace Core.Models
      
         public int Id { get; set; }
 
-        public int UserId { get; set; } // קשר למשתמש שהצביע
+        public int UserId { get; set; } 
         public virtual User User { get; set; }
 
-        public int ImageId { get; set; } // קשר לתמונה שהצביעו עליה
+        public int ImageId { get; set; } 
         public virtual Image Image { get; set; }
 
-        public DateTime VoteDate { get; set; } // תאריך הצבעה
+        public DateTime VoteDate { get; set; } 
     }
 }
-   //public Guid ID { get; set; }
-        //public User User { get; set; }
-        //public Image Image{ get; set; }
-
-        //public DateTime VoteDate { get; set; }

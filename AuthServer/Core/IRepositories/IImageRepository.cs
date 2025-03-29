@@ -14,9 +14,7 @@ namespace Core.IRepositories
         Task<Image> GetImageByIdAsync(int id);
         Task<List<Image>> GetImagesByChallengeAsync(int challengeId);
         Task<TopImageDTO?> GetTopImageByChallengeAsync(int challengeId);
-        //Task<Image> DeleteImageAsync(int id);
         Task<bool> DeleteImageAsync(int id);
-        //Task<Image> GetTopImageByChallengeAsync(int challengeId);
         Task<bool> CanUploadImageAsync(int userId, int challengeId);
     }
 }
