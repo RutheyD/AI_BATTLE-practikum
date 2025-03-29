@@ -107,7 +107,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigin",
         builder => builder.WithOrigins("https://ai-battle-users.onrender.com")
                           .AllowAnyHeader()
-                          .AllowAnyMethod());
+                          .AllowAnyMethod()
+                          .AllowCredentials());  // מוסיף תמיכה ב-CORS עם קרדנציאלים
 });
 
 //builder.Services.AddCors();
