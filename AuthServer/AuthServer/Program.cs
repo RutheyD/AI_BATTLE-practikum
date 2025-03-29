@@ -52,8 +52,8 @@ builder.Services.AddScoped<IS3Service, S3Service>();
 builder.Services.AddScoped<IVoteRepository, VoteRepository>();
 builder.Services.AddScoped<IVoteService, VoteService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
-builder.Services.AddScoped<IWinnerRepository, WinnerRepository>();
-builder.Services.AddScoped<IWinnerService, WinnerService>();
+//builder.Services.AddScoped<IWinnerRepository, WinnerRepository>();
+//builder.Services.AddScoped<IWinnerService, WinnerService>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddHostedService<ChallengeExpirationJob>();
 builder.Services.AddDbContext<DataContext>(options =>

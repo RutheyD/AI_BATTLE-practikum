@@ -15,22 +15,22 @@ const WinnersImages = () => {
         dispatch(getTopImagesByChallenge());
 
         const timeout = setTimeout(() => {
-            setShowConfetti(false); // Hide confetti after 20 seconds
-        }, 20000); // 20000 milliseconds = 20 seconds
+            setShowConfetti(false); 
+        }, 20000); 
 
-        return () => clearTimeout(timeout);  // Cleanup the timeout on unmount
+        return () => clearTimeout(timeout);  
     }, [dispatch]);
 
     return (
         <>
             {showConfetti && (
                 <Confetti
-                    gravity={0.1} // Slower falling speed
-                    numberOfPieces={100} // Number of confetti pieces
+                    gravity={0.1} 
+                    numberOfPieces={100} 
                     colors={['rgba(138, 140, 255, 0.8)' , 'rgba(255, 64, 129, 0.8)', 'rgba(0, 0, 0, 0.8)', 'rgba(255, 130, 58, 0.8)', 'rgba(85, 128, 255, 0.8)']} // Customize colors
-                    recycle={true} // Recycle the confetti falling in loops
-                    initialVelocityX={5} // Slower horizontal movement
-                    initialVelocityY={3} // Slower vertical movement
+                    recycle={true} 
+                    initialVelocityX={5} 
+                    initialVelocityY={3} 
                 />
             )}
             <Grid container spacing={2}>
@@ -40,7 +40,7 @@ const WinnersImages = () => {
                             <CardMedia
                                 component={ImageViewer}
                                 fileName={winner.fileName}
-                                sx={{ height: 200 }} // Adjust height as needed
+                                sx={{ height: 200 }} 
                             />
                             <Typography variant="h6" component="div" gutterBottom>
                                 {winner.challengeName}

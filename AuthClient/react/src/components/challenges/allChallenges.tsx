@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { useEffect } from "react";
 import { getChallenges } from "../redux/challengeSlice";
-import { Box, Card, CardContent, Typography, Avatar, Paper, Slider } from "@mui/material";
+import { Box, Card, CardContent, Typography, Avatar } from "@mui/material";
 import { Outlet, useNavigate } from "react-router";
 import LockIcon from "@mui/icons-material/Lock";
 
@@ -22,15 +22,12 @@ const AllChallenges = () => {
     };
     const formatDate = (date: string | Date) => {
         const d = new Date(date);
-        const day = d.getDate().toString().padStart(2, '0'); // מוסיף אפס בהתחלה אם היום הוא פחות מ-10
-        const month = (d.getMonth() + 1).toString().padStart(2, '0'); // החודש הוא בין 0 ל-11, אז מוסיפים 1
-        const year = d.getFullYear(); // שנה
+        const day = d.getDate().toString().padStart(2, '0');
+        const month = (d.getMonth() + 1).toString().padStart(2, '0');
+        const year = d.getFullYear();
 
-        return `${day}-${month}-${year}`; // פורמט יום-חודש-שנה
+        return `${day}-${month}-${year}`;
     };
-
-
-
     return (
         <>
             <Box sx={{ display: "flex", width: "100%", height: "100vh", gap: 4, padding: 2, marginTop: '50px' }}>
@@ -75,7 +72,6 @@ const AllChallenges = () => {
                                             }}
                                         />
                                     )}
-    
                                     <CardContent sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                                         <Avatar src="/assets/profile.jpg" alt="Avatar" />
                                         <Box>
@@ -99,10 +95,9 @@ const AllChallenges = () => {
                                             variant="body2"
                                             color="text.secondary"
                                             sx={{
-                                                display: "inline", 
+                                                display: "inline",
                                                 fontWeight: 'bold',
-                                            }}
-                                        >
+                                            }}>
                                             From:
                                         </Typography>
                                         {formatDate(challenge.startDate.toString())}
@@ -110,14 +105,14 @@ const AllChallenges = () => {
                                             variant="body2"
                                             color="text.secondary"
                                             sx={{
-                                                display: "inline", 
-                                                fontWeight: 'bold', 
+                                                display: "inline",
+                                                fontWeight: 'bold',
                                             }}
                                         >
                                             Till:
                                         </Typography>
                                         {formatDate(challenge.endDate.toString())}
-    
+
                                     </CardContent>
                                 </Card>
                             );
@@ -126,7 +121,7 @@ const AllChallenges = () => {
                         <Typography sx={{ padding: 2 }}>No challenges available.</Typography>
                     )}
                 </Box>
-                <Box
+                {/* <Box
                     sx={{
                         flex: 1,
                         padding: 3,
@@ -138,8 +133,8 @@ const AllChallenges = () => {
                         justifyContent: "space-between",
                         height: "100%"
                     }}
-                >
-                    <Box sx={{ flex: 1, overflow: "hidden", borderRadius: 2 }}>
+                > */}
+                {/* <Box sx={{ flex: 1, overflow: "hidden", borderRadius: 2 }}>
                         <Slider
                             sx={{
                                 width: "100%",
@@ -171,14 +166,14 @@ const AllChallenges = () => {
                             Come and join the fun! Take part in the next challenge!
                         </Typography>
                     </Paper>
-                </Box>
+                </Box> */}
             </Box>
             <Box>
                 <Outlet />
             </Box>
         </>
     );
-    
+
 };
 
 export default AllChallenges;

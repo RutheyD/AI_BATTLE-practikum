@@ -11,11 +11,11 @@ console.log("userName "+userName);
     <> 
       <div
         style={{
-          backgroundColor: 'white', // רקע לבן
-          height: '100vh', // גובה מלא של המסך
-          position: 'relative', // מיקום יחסי
-          padding: '40px 20px', // מרווחים פנימיים
-          textAlign: 'center', // טקסט מיושר למרכז
+          backgroundColor: 'white', 
+          height: '100vh',
+          position: 'relative', 
+          padding: '40px 20px', 
+          textAlign: 'center', 
           fontFamily: '"Poppins", sans-serif',
         }}
       >
@@ -26,7 +26,7 @@ console.log("userName "+userName);
             backgroundColor: 'rgba(255, 255, 255, 0.9)', 
             padding: '40px',
             borderRadius: '10px',
-            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', // הצללה קלה
+            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', 
           }}
         >
           <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 3, color: '#000', fontSize: '2.5rem' }}>

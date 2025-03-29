@@ -55,22 +55,20 @@ const FileUploader = ({ idChallenge }:{idChallenge:number}) => {
 <Box
   sx={{
     position: "fixed",
-    top: 80, // התאמה כך שיהיה מתחת ל-HEADER
-    left: 20, // צמוד לצד שמאל
+    top: 80, 
+    left: 20,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     gap: 2,
     p: 2,
     backgroundColor: "white",
-    // boxShadow: 3,
     borderRadius: 2,
-    width: 250, // גודל קומפקטי
-    zIndex: 10, // מבטיח שהתיבה לא תוסתר
+    width: 250, 
+    zIndex: 10,
   }}
 >
 <Button component="label" variant="contained" startIcon={<CloudUploadIcon />} sx={{ width: "fit-content", backgroundColor: "#ff4081", 
-    // color: "white",
     "&:hover": { backgroundColor: "rgb(255, 124, 48)" }
 }}>
  choose a pic          <input type="file" hidden onChange={handleFileChange} />

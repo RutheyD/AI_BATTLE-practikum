@@ -4,7 +4,6 @@ import NavBar from "./navBar"
 const AppLayout=()=>{
 return(<>
 
-{/* <Home/> */}
 <NavBar/>
 <Outlet/>
 </>)

@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
           { path: 'connect', element: <Connect/>},
           { path: 'challenges', element: <AllChallenges /> },
           {
-            path: 'allChallenges/:id', // הכנס את ה-id בתוך ה-path של האתגר
+            path: 'allChallenges/:id', 
             element: <ShowChallenge />
           },
           { path: 'winners', element: <WinnersImages /> },

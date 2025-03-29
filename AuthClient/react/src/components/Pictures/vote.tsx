@@ -27,7 +27,6 @@ setIsVote(!isVote)
 return(<>
 <IconButton onClick={clickVote} disabled={token==null}style={{color:isVote?'orange':'black',fontWeight:"bold",fontSize:"50px"}}>{isVote?<CaretUpOutlined />:<CaretDownOutlined />}</IconButton>
 <CardContent>
-                      {/* <Typography variant="h6">pic {index + 1}</Typography> */}
 <Typography variant="h6" style={{color:isVote?'orange':'black',fontWeight:"bold"}}>{countVotes}</Typography>
 </CardContent>
 </>)

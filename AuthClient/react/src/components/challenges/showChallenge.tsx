@@ -38,29 +38,23 @@ const ShowChallenge = () => {
         return;
       }
 
-      // בקשה לקבלת הקובץ בפורמט blob
       const fileResponse = await axios.get(downloadUrl, {
-        responseType: 'blob', // גורם להחזרת קובץ במקום להציג אותו
+        responseType: 'blob', 
       });
 
-      // יצירת כתובת URL לנתונים
       const blobUrl = URL.createObjectURL(fileResponse.data);
 
-      // יצירת קישור להורדה
       const link = document.createElement('a');
       link.href = blobUrl;
-      link.setAttribute('download', fileName); // שם הקובץ שישמר
+      link.setAttribute('download', fileName);
       document.body.appendChild(link);
       link.click();
 
-      // ניקוי הזיכרון
       document.body.removeChild(link);
       URL.revokeObjectURL(blobUrl);
     } catch (error) {
       console.error('Error downloading the image:', error);
-    }
-  };
-
+    }};
   return (
     <>
       {challenge && (
@@ -69,8 +63,7 @@ const ShowChallenge = () => {
             {challenge.title}
           </Typography>
           
-          {/* INSTRUCTIONS Accordion */}
-          <Accordion>
+          <Accordion >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="instructions-content"
@@ -86,9 +79,7 @@ const ShowChallenge = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-
           <FileUploader idChallenge={Number(id)} />
-
           <Grid container spacing={2}>
             {ImagesOfChallenge.map((image, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>
@@ -100,7 +91,6 @@ const ShowChallenge = () => {
                   <Card sx={{ position: 'relative' }}>
                     <ImageViewer fileName={`${image.fileName}`} />
 
-                    {/* Download button */}
                     <IconButton
                       onClick={() => handleDownload(image.fileName)}
                       sx={{
@@ -111,13 +101,11 @@ const ShowChallenge = () => {
                         bottom: 16,
                         left: 16,
                         fontSize: '36px',
-                      }}
-                    >
+                      }} >
                       <DownloadOutlinedIcon />
                     </IconButton>
                       <Vote imageId={image.id}challengeId={image.challengeId}countVotes={image.countVotes}/>
-
-                  
+        
                   </Card>
                 </motion.div>
               </Grid>
@@ -128,7 +116,6 @@ const ShowChallenge = () => {
     </>
   );
 };
-
 export default ShowChallenge;
 
 

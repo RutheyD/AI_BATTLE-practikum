@@ -49,11 +49,11 @@ export const topImageSlice = createSlice({
       }).addCase(getTopImagesByChallenge.fulfilled, (state, action: PayloadAction<TopImageType[]>) => {
               state.loading = false;
               state.error = null;
-              state.topImages = action.payload; // עדכון המידע עם התמונות המתקבלות
+              state.topImages = action.payload; 
           })
           .addCase(getTopImagesByChallenge.rejected, (state) => {
               state.loading = false;
-              state.error = "Failed to load image "; // טיפול בשגיאות
+              state.error = "Failed to load image "; 
           });
   },
 });
