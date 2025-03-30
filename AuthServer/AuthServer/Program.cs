@@ -105,7 +105,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("https://ai-battle-users.onrender.com", "http://localhost:4200/")
+        builder => builder.WithOrigins("https://ai-battle-users.onrender.com", "http://localhost:4200")
                           .AllowAnyHeader()
                           .AllowAnyMethod()
                           .AllowCredentials());  // מוסיף תמיכה ב-CORS עם קרדנציאלים
