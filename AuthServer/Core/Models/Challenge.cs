@@ -8,7 +8,7 @@ namespace Core.Models
 {
     public enum EStatus
     {
-        active,finished
+       finished ,active
     }
     public class Challenge
     {

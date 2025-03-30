@@ -79,7 +79,8 @@ const ShowChallenge = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <FileUploader idChallenge={Number(id)} />
+          {challenge.status&&
+          <FileUploader idChallenge={Number(id)} />}
           <Grid container spacing={2}>
             {ImagesOfChallenge.map((image, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>
