@@ -133,7 +133,7 @@ if (app.Environment.IsDevelopment())
 
 //app.UseHttpsRedirection();
 app.UseCors("AllowSpecificOrigin");
-app.UseCors("AllowAllOrigins");
+//app.UseCors("AllowAllOrigins");
 
 
 app.UseAuthentication();
