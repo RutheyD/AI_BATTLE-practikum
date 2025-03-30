@@ -51,6 +51,7 @@ const FileUploader = ({ idChallenge }: { idChallenge: number }) => {
       await axios.post(`${API_BASE_URL}/api/Image/upload/image`, imageData, {
         headers: { Authorization: `Bearer ${token}` },
       });
+      dispatch(getImageByChallengeId(idChallenge));
 
       alert("הקובץ הועלה בהצלחה!");
     } catch (error) {

@@ -16,7 +16,7 @@ namespace AiBattle.API.Jobs
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var timer = new PeriodicTimer(TimeSpan.FromMinutes(60)); // בדיקה כל 15 דקות
+            var timer = new PeriodicTimer(TimeSpan.FromMinutes(10)); // בדיקה כל 15 דקות
 
             while (await timer.WaitForNextTickAsync(stoppingToken))
             {
