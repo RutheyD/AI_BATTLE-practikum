@@ -6,7 +6,6 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { getImageByChallengeId } from "../redux/imageSlice";
-import { getChallengeById } from "../redux/challengeSlice";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const FileUploader = ({ idChallenge }: { idChallenge: number }) => {
@@ -16,7 +15,6 @@ const FileUploader = ({ idChallenge }: { idChallenge: number }) => {
   const dispatch = useDispatch<AppDispatch>();
   useSelector((state: RootState) => state.iamges.imagesByChallenge);
   const [preview, setPreview] = useState<string>("");
-  // const currentChallenge=dispatch(getChallengeById(Number(idChallenge)))
   const canUpload = token != null
 
   useEffect(() => {
