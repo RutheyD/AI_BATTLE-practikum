@@ -23,7 +23,7 @@ export const getTopImagesByChallenge = createAsyncThunk(
             countVotes: topImage.countVotes,
             fileName: topImage.fileName
 
-          }as TopImagesType; 
+          }as TopImageType; 
         })
       );
 
