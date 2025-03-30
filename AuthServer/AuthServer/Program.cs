@@ -101,15 +101,16 @@ builder.Services.AddAuthentication(options =>
 //        };
 //    });
 
+builder.Services.AddCors();
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("https://ai-battle-users.onrender.com", "http://localhost:4200")
-                          .AllowAnyHeader()
-                          .AllowAnyMethod()
-                          .AllowCredentials());  // מוסיף תמיכה ב-CORS עם קרדנציאלים
-});
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowSpecificOrigin",
+//        builder => builder.WithOrigins("https://ai-battle-users.onrender.com", "http://localhost:4200")
+//                          .AllowAnyHeader()
+//                          .AllowAnyMethod()
+//                          .AllowCredentials());  // מוסיף תמיכה ב-CORS עם קרדנציאלים
+//});
 //builder.Services.AddCors(options =>
 //{
 //    options.AddPolicy("AllowAllOrigins",
@@ -130,9 +131,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 //app.UseHttpsRedirection();
-app.UseCors("AllowSpecificOrigin");
+//app.UseCors("AllowSpecificOrigin");
 //app.UseCors("AllowAllOrigins");
 
 
