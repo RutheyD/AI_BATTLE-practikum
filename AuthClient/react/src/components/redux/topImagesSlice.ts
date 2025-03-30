@@ -23,7 +23,7 @@ export const getTopImagesByChallenge = createAsyncThunk(
             countVotes: topImage.countVotes,
             fileName: topImage.fileName
 
-          };
+          }as TopImagesType; 
         })
       );
 
@@ -62,4 +62,6 @@ export const selectTopImages = (state: RootState) => state.topImages.topImages;
 
 export const { actions } = topImageSlice;
 export default topImageSlice;
+
+/////
 
