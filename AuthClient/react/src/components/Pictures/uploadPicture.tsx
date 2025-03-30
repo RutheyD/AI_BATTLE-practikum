@@ -52,8 +52,7 @@ const FileUploader = ({ idChallenge }: { idChallenge: number }) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(getImageByChallengeId(idChallenge));
-
-      alert("הקובץ הועלה בהצלחה!");
+      setPreview("")
     } catch (error) {
       console.error("שגיאה בהעלאה:", error);
     }

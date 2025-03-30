@@ -121,7 +121,6 @@ builder.Services.AddCors();
 //});
 
 
-//builder.Services.AddCors();
 var app = builder.Build();
 
 
@@ -133,9 +132,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
-//app.UseHttpsRedirection();
-//app.UseCors("AllowSpecificOrigin");
-//app.UseCors("AllowAllOrigins");
+
 
 
 app.UseAuthentication();
