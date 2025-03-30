@@ -28,7 +28,13 @@ namespace Data.Repositories
         {
             return await _context.Images.Include(i => i.User).FirstOrDefaultAsync(i => i.ID == id);
         }
-
+        public async Task<int> GetUserIdByImageIdAsync(int imageId)
+        {
+            return await _context.Images
+                .Where(img => img.ID == imageId)
+                .Select(img => img.UserId)
+                .FirstOrDefaultAsync();
+        }
         public async Task<List<Image>> GetImagesByChallengeAsync(int challengeId)
         {
             return await _context.Images

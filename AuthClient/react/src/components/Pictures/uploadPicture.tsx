@@ -13,7 +13,7 @@ const FileUploader = ({ idChallenge }: { idChallenge: number }) => {
   const [progress, setProgress] = useState(0);
   const token = sessionStorage.getItem('token')
   const dispatch = useDispatch<AppDispatch>();
-  useSelector((state: RootState) => state.iamges.imagesByChallenge);
+  useSelector((state: RootState) => state.images.imagesByChallenge);
   const [preview, setPreview] = useState<string>("");
   const canUpload = token != null
 

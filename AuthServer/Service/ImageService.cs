@@ -30,7 +30,10 @@ namespace Service
         {
             return await _imageRepository.GetImagesByChallengeAsync(challengeId);
         }
-
+        public async Task<int> GetUserIdByImageIdAsync(int imageId)
+        {
+            return await _imageRepository.GetUserIdByImageIdAsync(imageId);
+        }
         public async Task<bool> DeleteImageAsync(int id, int userId, bool isAdmin)
         {
             var image = await _imageRepository.GetImageByIdAsync(id);

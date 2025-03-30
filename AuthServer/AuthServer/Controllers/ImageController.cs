@@ -34,7 +34,16 @@ namespace AiBattle.API.Controllers
 
             return Ok(imageDTOs);
         }
+        [HttpGet("GetUserIdByImageId/{imageId}")]
+        public async Task<IActionResult> GetUserIdByImageIdAsync(int imageId)
+        {
+            var userId = await _imageService.GetUserIdByImageIdAsync(imageId);
 
+            if (userId == null)
+                return NotFound("Image not found or has no associated user.");
+
+            return Ok(userId);
+        }
         [HttpGet("presigned-url")]
         [Authorize]
         public async Task<ActionResult> GetPresignedUrl([FromQuery] string fileName, [FromQuery] string contentType, [FromQuery] int challengeId)
@@ -108,6 +117,7 @@ namespace AiBattle.API.Controllers
 
             return NoContent();
         }
+
     }
 }
 

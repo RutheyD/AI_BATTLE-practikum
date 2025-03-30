@@ -12,8 +12,8 @@ namespace Core.IServices
     {
         Task<Image> GetImageByIdAsync(int id);
         Task<List<Image>> GetImagesByChallengeAsync(int challengeId);
-        Task<bool> DeleteImageAsync(int id, int userId, bool isAdmin); 
-
+        Task<bool> DeleteImageAsync(int id, int userId, bool isAdmin);
+        Task<int> GetUserIdByImageIdAsync(int imageId);
         Task<TopImageDTO?> GetTopImageByChallengeAsync(int challengeId);
         Task<Image> AddImageAsync(Image image);
         Task<bool> CanUploadImageAsync(int userId, int challengeId);

@@ -17,7 +17,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const ShowChallenge = () => {
   const { id } = useParams();
   const dispatch = useDispatch<AppDispatch>();
-  const ImagesOfChallenge = useSelector((state: RootState) => state.iamges.imagesByChallenge);
+  const ImagesOfChallenge = useSelector((state: RootState) => state.images.imagesByChallenge);
   const challenge = useSelector((state: RootState) => state.challenges.selectedChallenge);
 
   useEffect(() => {
