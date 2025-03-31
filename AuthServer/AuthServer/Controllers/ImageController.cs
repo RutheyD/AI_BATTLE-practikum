@@ -91,34 +91,19 @@ namespace AiBattle.API.Controllers
             return Ok(imageDTO);
         }
 
-        //[HttpGet("top/challenge/{id}")]
-        //public async Task<IActionResult> GetTopImageByChallenge(int id)
-        //{
-        //    var topImage = await _imageService.GetTopImageByChallengeAsync(id);
-
-        //    if (topImage == null)
-        //    {
-        //        return NotFound("No top image found for this challenge.");
-        //    }
-
-        //    return Ok(topImage);
-        //}
-        [HttpGet("top/challenge/{ID}")]
+        [HttpGet("top/challenge/{id}")]
         public async Task<IActionResult> GetTopImageByChallenge(int id)
         {
-            Console.WriteLine($"🔍 Checking top image for challenge: {id}");
-
             var topImage = await _imageService.GetTopImageByChallengeAsync(id);
 
             if (topImage == null)
             {
-                Console.WriteLine($"⚠️ No top image found for challenge {id}");
                 return NotFound("No top image found for this challenge.");
             }
 
-            Console.WriteLine($"✅ Found top image: {topImage.ID}");
             return Ok(topImage);
         }
+
 
         [HttpDelete("{id}")]
         [Authorize]
