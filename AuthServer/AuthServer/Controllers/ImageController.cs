@@ -103,7 +103,7 @@ namespace AiBattle.API.Controllers
 
         //    return Ok(topImage);
         //}
-        [HttpGet("top/challenge/{id}")]
+        [HttpGet("top/challenge/{ID}")]
         public async Task<IActionResult> GetTopImageByChallenge(int id)
         {
             Console.WriteLine($"🔍 Checking top image for challenge: {id}");
@@ -116,7 +116,7 @@ namespace AiBattle.API.Controllers
                 return NotFound("No top image found for this challenge.");
             }
 
-            Console.WriteLine($"✅ Found top image: {topImage.Id}");
+            Console.WriteLine($"✅ Found top image: {topImage.ID}");
             return Ok(topImage);
         }
 
