@@ -51,11 +51,10 @@ const Vote = ({ imageId, challengeId, countVotes }: { imageId: number; challenge
   const token = sessionStorage.getItem('token');
 
   useEffect(() => {
-    // שליחה ל-Redux לשלוף את ה-userId של התמונה
     dispatch(getUserIdByImageId(imageId))
       .unwrap()
       .then((userId) => {
-        setImageUserId(userId);  // עדכון ה-userId של מי שהעלה את התמונה
+        setImageUserId(userId); 
       })
       .catch((error) => {
         console.error("Failed to fetch userId", error);
@@ -71,7 +70,7 @@ const Vote = ({ imageId, challengeId, countVotes }: { imageId: number; challenge
     setIsVote(!isVote);
   };
 
-  const isDisabled = token === null || userIdFromToken === imageUserId;  // אם המשתמש הוא זה שהעלה את התמונה, הכפתור יושבת
+  const isDisabled = (token === null || userIdFromToken === imageUserId);  
 
   return (
     <>

@@ -20,9 +20,12 @@ const NavBar = () => {
   const token = sessionStorage.getItem('token');
 
   useEffect(() => {
+    console.log(userEmail);
+    
     if (userEmail) {
       setGravatarUrl(`https://www.gravatar.com/avatar/${md5(userEmail.trim().toLowerCase())}?s=200&d=identicon`);
     }
+    else(setGravatarUrl(""))
   }, [userEmail]); 
 
   const handleCloseUserMenu = (setting: string) => {
