@@ -33,6 +33,9 @@ const WinnersImages = () => {
                     initialVelocityY={3} 
                 />
             )}
+            <Typography variant="h1" component="div" gutterBottom>
+                               Winners:
+                            </Typography>
             <Grid container spacing={2}>
                 {winnersList.map((winner) => (
                     <Grid item xs={12} sm={6} md={4} key={winner.id}>
