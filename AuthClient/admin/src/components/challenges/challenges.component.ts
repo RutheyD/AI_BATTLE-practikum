@@ -11,6 +11,48 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 
+// @Component({
+//   selector: 'app-challenges',
+//   imports: [AsyncPipe, ReactiveFormsModule, MatButtonModule, MatButtonModule,
+//     MatInputModule,
+//     MatFormFieldModule,
+//     MatCardModule, MatExpansionModule,CommonModule],
+//   templateUrl: './challenges.component.html',
+//   styleUrl: './challenges.component.css'
+// })
+// export class ChallengesComponent implements OnInit {
+//   challengeForm!: FormGroup;
+// isAddChallenge:boolean=false;
+
+//   allChallenges$: Observable<Challenge[]>;
+//   constructor(private challengeService: ChallengeService, private fb: FormBuilder) {
+//     this.allChallenges$ = this.challengeService.challenges$;
+//     this.challengeService.getAllChallenges();
+//   }
+//   ngOnInit(): void {
+// this.challengeForm=this.fb.group({
+//   title:['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
+//  description:['', [Validators.required, Validators.minLength(4)]],
+
+// })
+//   }
+//   get challenge(): { [key: string]: AbstractControl } {
+//     return this.challengeForm.controls;
+//   }
+//   setIsAddChallenge(){
+//     this.isAddChallenge=!this.isAddChallenge;
+//   }
+//   onSubmitAddChallenge() {
+// this.challengeService.addChallenge(this.challengeForm.value)
+//   }
+//   isChallengeActive(startDate: Date, endDate: Date): boolean {
+//     const currentDate = new Date();
+//     return currentDate >= new Date(startDate) && currentDate <= new Date(endDate);
+//   }
+//   getActiveChallenges() {
+// this.challengeService.getActiveChallenges();
+//   }
+// }
 @Component({
   selector: 'app-challenges',
   imports: [AsyncPipe, ReactiveFormsModule, MatButtonModule, MatButtonModule,
@@ -31,7 +73,7 @@ isAddChallenge:boolean=false;
   }
   ngOnInit(): void {
 this.challengeForm=this.fb.group({
-  title:['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
+  title:['', [Validators.required, Validators.minLength(4)]],
  description:['', [Validators.required, Validators.minLength(4)]],
 //  startDate:[],
 //  endDate:[],
@@ -46,6 +88,7 @@ this.challengeForm=this.fb.group({
   }
   onSubmitAddChallenge() {
 this.challengeService.addChallenge(this.challengeForm.value)
+this.challengeForm.reset(); 
 // console.log("in add  ch");
   }
   isChallengeActive(startDate: Date, endDate: Date): boolean {

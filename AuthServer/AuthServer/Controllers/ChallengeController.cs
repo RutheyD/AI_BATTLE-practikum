@@ -80,5 +80,12 @@ namespace AiBattle.API.Controllers
             await _challengeService.ProcessExpiredChallengesAsync();
             return Ok("Expired challenges processed successfully.");
         }
+
+        [HttpGet("getChallengeVotes")]
+        public async Task<ActionResult<IEnumerable<ChallengeVotesDTO>>> GetChallengeVotes()
+        {
+            var challengesVoteList = await _challengeService.GetChallengeVotesAsync();
+            return Ok(challengesVoteList);
+        }
     }
 }

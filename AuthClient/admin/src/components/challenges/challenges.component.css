@@ -1,15 +1,255 @@
-mat-list-item {
-    margin-bottom: 16px;
-    padding: 16px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
+/*-------------------*/
+/* CONTAINER */
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 32px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #ffffff 0%, #f0f4f8 100%);
+  min-height: 100vh;
+  gap: 40px;
+}
+
+@media (min-width: 992px) {
+  .container {
+    flex-direction: row;
+    gap: 50px;
   }
+}
+
+/* CHALLENGE LIST SECTION */
+.challenge-list {
+  flex: 2;
+  margin-bottom: 30px;
+}
+
+.challenge-list h2 {
+  color: black;
+  font-size: 30px;
+  margin-bottom: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Expansion Panel */
+::ng-deep .mat-expansion-panel {
+  margin-bottom: 20px !important;
+  border-radius: 18px !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e0e0e0 !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+::ng-deep .mat-expansion-panel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+::ng-deep .mat-expansion-panel-header {
+  padding: 22px 28px !important;
+  background: #ffffff !important;
+  min-height: 68px !important;
+}
+
+::ng-deep .mat-expansion-panel-header-title {
+  color: rgba(138, 140, 255, 0.8) !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+}
+
+/* Status Badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #f1f5f9;
+  margin-right: 12px;
+  border: 1px solid #cbd5e1;
+}
+
+.status-badge::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-badge.active {
+  background-color: #dcfce7;
+  color: rgba(138, 140, 255, 0.8);
+  border-color: #86efac;
+}
+
+.status-badge.active::before {
+  background-color: rgba(138, 140, 255, 0.8);
+}
+
+.status-badge.inactive {
+  background-color: #fee2e2;
+  color: rgba(255, 64, 129, 0.8);
+  border-color: #fca5a5;
+}
+
+.status-badge.inactive::before {
+  background-color: rgba(255, 64, 129, 0.8);
+}
+
+/* Panel Subtitle */
+.panel-subtitle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+/* Challenge Description */
+.challenge-description {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #475569;
+  padding: 20px 10px;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 12px 28px 28px !important;
+  font-size: 17px !important;
+}
+
+/* CHALLENGE FORM SECTION */
+.challenge-form {
+  flex: 1;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f7faff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Form Ribbon */
+.form-ribbon {
+  height: 60px;
+  background: rgba(255, 64, 129, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form Title */
+.form-title {
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
   
-  mat-form-field {
-    display: block;
-    margin-bottom: 16px;
-  }
-  mat-card {
-    width: 300px; 
-    text-align: center; 
-  }
+}
+
+/* Form Content */
+.form-content {
+  padding: 40px 30px;
+  background: #ffffff;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-title-container{
+
+   text-align: center;
+
+}
+/* Form Fields */
+::ng-deep .mat-form-field {
+  width: 100% !important;
+  margin-bottom: 25px !important;
+  text-align: center;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background: #eef4ff !important;
+  border: 1px solid #d0dbff !important;
+  border-radius: 25px !important;
+  padding: 14px 20px !important;
+  transition: all 0.3s ease;
+  justify-content: center;
+}
+
+::ng-deep .mat-form-field-appearance-fill:hover .mat-form-field-flex {
+  border-color: rgba(138, 140, 255, 0.8) !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill.mat-focused .mat-form-field-flex {
+  border: 2px solid rgba(138, 140, 255, 0.8) !important;
+  box-shadow: 0 0 5px rgba(138, 140, 255, 0.3);
+}
+
+/* Labels */
+::ng-deep .mat-form-field-label {
+  color: #777 !important;
+  font-weight: 500 !important;
+}
+
+::ng-deep .mat-form-field-label.mat-focused {
+  color: rgba(138, 140, 255, 0.8) !important;
+}
+
+/* Inputs */
+::ng-deep .mat-input-element {
+  font-size: 16px !important;
+  color: black !important;
+  text-align: center;
+}
+
+::ng-deep textarea.mat-input-element {
+  min-height: 100px !important;
+  text-align: center;
+}
+
+/* Button Container */
+.button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Pink Button */
+.pink-button {
+  background: rgba(255, 64, 129, 0.8) !important;
+  color: white !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  padding: 14px 50px !important;
+  border: none !important;
+  border-radius: 30px !important;
+  text-transform: uppercase;
+  box-shadow: 0 6px 20px rgba(255, 64, 129, 0.3);
+  transition: 0.3s;
+}
+
+.pink-button:hover:not([disabled]) {
+  background: rgba(255, 64, 129, 1) !important;
+  transform: translateY(-2px);
+}
+
+.pink-button:disabled {
+  background: #a7bff5 !important;
+}
+
+/* Error Messages */
+::ng-deep .mat-error {
+  color: rgba(255, 64, 129, 0.8) !important;
+  background: rgba(255, 64, 129, 0.1);
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-top: 5px;
+  display: inline-block;
+}

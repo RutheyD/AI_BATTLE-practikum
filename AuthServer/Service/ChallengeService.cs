@@ -86,5 +86,9 @@ namespace Service
             }
 
         }
+        public async Task<IEnumerable<ChallengeVotesDTO>> GetChallengeVotesAsync()
+        {
+            return await _challengeRepository.GetChallengeVotesAsync();
+        }
     }
 }

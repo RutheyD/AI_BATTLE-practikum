@@ -18,3 +18,29 @@
     </mat-expansion-panel>
     }
 </mat-accordion>
+
+
+
+ <!-- <button mat-raised-button color="primary" class="add-user-btn">Add User</button>
+
+ <mat-accordion class="user-accordion">
+     @for(currentUser of (allUsers$|async);track $index){
+     <mat-expansion-panel class="user-panel">
+         <mat-expansion-panel-header class="user-header">
+             <mat-panel-title>
+                 <span class="user-name">{{currentUser.fullName}}</span>
+                 @if(!currentUser.isDeleted){
+                 <button mat-raised-button color="warn" class="action-btn" (click)="deleteUser(currentUser.id)">Delete User</button>
+                 }@else {
+                 <button mat-raised-button color="primary" class="action-btn" (click)="addUser(currentUser.id)">Add User</button>
+                 }
+             </mat-panel-title>
+         </mat-expansion-panel-header>
+         <div class="user-info">
+             <div><strong>Email:</strong> {{currentUser.email}}</div>
+             <div><strong>Joining Date:</strong> {{currentUser.joiningDate}}</div>
+         </div>
+     </mat-expansion-panel>
+     }
+ </mat-accordion> -->
+ 

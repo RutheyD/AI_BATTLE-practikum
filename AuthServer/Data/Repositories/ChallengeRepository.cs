@@ -1,4 +1,5 @@
-﻿using Core.IRepositories;
+﻿using Core.DTOs;
+using Core.IRepositories;
 using Core.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -63,7 +64,19 @@ namespace Data.Repositories
             var topImage = await GetTopImageByChallengeAsync(challengeId);
             return topImage?.UserId;
         }
-       
+        public async Task<IEnumerable<ChallengeVotesDTO>> GetChallengeVotesAsync()
+        {
+            return await _context.Challenges
+          .Select(c => new ChallengeVotesDTO
+          {
+              //Id = c.Id,
+              Title = c.Title,
+              Votes = _context.Images
+                  .Where(i => i.ChallengeId == c.ID)
+                  .Sum(i => i.CountVotes) // Assuming CountVotes holds the number of votes for each image
+          })
+          .ToListAsync();
+        }
 
     }
 }

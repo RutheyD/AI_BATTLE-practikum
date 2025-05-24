@@ -18,4 +18,3 @@ export class AuthService {
     sessionStorage.setItem('token', token);
   }
 }
-//http://localhost:5037

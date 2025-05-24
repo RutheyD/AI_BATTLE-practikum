@@ -1,4 +1,5 @@
-﻿using Core.Models;
+﻿using Core.DTOs;
+using Core.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace Core.IRepositories
         Task<Image?> GetTopImageByChallengeAsync(int challengeId);
 
         Task<int?> GetWinnerByTopImageAsync(int challengeId);
-        
 
+        Task<IEnumerable<ChallengeVotesDTO>> GetChallengeVotesAsync();
     }
 }

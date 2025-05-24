@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Challenge } from '../models/challenge';
+import { Challenge, ChallengesVotes } from '../models/challenge';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environment';
 
@@ -9,7 +9,7 @@ import { environment } from '../environment';
 })
 export class ChallengeService {
   apiUrl = environment.apiUrl;
-  
+
 private challengesSubject:BehaviorSubject<Challenge[]>=new BehaviorSubject<Challenge[]>([])
   challenges$:Observable<Challenge[]>;
 
@@ -65,9 +65,12 @@ this.http.get<Challenge[]>(`${this.apiUrl}/api/Challenge/finished`).subscribe({
     next:(response)=>{
       this.getAllChallenges();
     },error:(e)=>{
-      console.log("errorrrrrrrrrrr");  
+      console.log("error");  
     }
   })
+   }
+   getChallengeVotes():Observable<ChallengesVotes[]>{
+    return this.http.get<ChallengesVotes[]>(`${this.apiUrl}/api/Challenge/getChallengeVotes`)
    }
  }
 

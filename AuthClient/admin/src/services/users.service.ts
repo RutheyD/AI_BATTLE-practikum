@@ -31,6 +31,4 @@ deleteUser(userId:number){
     }
   })
 }
-
-
 }

@@ -40,9 +40,7 @@ password:['',[Validators.required,Validators.minLength(5)]]
     this.router.navigate(['/homePage']);
    }
     ,error:(e)=>{
-// console.error(e.error.message)
 console.log("error");
-
    }})  
 }
 }

@@ -2,20 +2,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* גובה מלא של המסך */
+    height: 100vh;
   }
   
   mat-card {
-    width: 300px; /* רוחב קבוע */
-    text-align: center; /* מרכז את הטקסט */
+    width: 300px; 
+    text-align: center; 
   }
   
   .center-title {
-    text-align: center; /* מרכז את הכותרת */
+    text-align: center; 
   }
   
   .center-actions {
     display: flex;
-    justify-content: center; /* מרכז את הכפתור */
+    justify-content: center; 
   }
   

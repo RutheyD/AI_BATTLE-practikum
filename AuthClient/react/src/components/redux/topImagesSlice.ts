@@ -63,5 +63,4 @@ export const selectTopImages = (state: RootState) => state.topImages.topImages;
 export const { actions } = topImageSlice;
 export default topImageSlice;
 
-/////
 
