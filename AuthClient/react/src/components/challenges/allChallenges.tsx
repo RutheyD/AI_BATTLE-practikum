@@ -121,52 +121,6 @@ const AllChallenges = () => {
                         <Typography sx={{ padding: 2 }}>No challenges available.</Typography>
                     )}
                 </Box>
-                {/* <Box
-                    sx={{
-                        flex: 1,
-                        padding: 3,
-                        backgroundColor: "#9c27b0",
-                        borderRadius: 2,
-                        boxShadow: 3,
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "space-between",
-                        height: "100%"
-                    }}
-                > */}
-                {/* <Box sx={{ flex: 1, overflow: "hidden", borderRadius: 2 }}>
-                        <Slider
-                            sx={{
-                                width: "100%",
-                                "& .MuiSlider-thumb": {
-                                    display: "none",
-                                },
-                            }}
-                            value={0}
-                            min={0}
-                            max={5}
-                            valueLabelDisplay="auto"
-                            valueLabelFormat={(value) => (
-                                <img
-                                    src={`../../../public/assets/brain.png`}
-                                    alt={`Image ${value}`}
-                                    style={{
-                                        width: "100%",
-                                        height: "auto",
-                                        objectFit: "cover",
-                                        borderRadius: "10px",
-                                    }}
-                                />
-                            )}
-                        />
-                    </Box>
-    
-                    <Paper sx={{ padding: 3, textAlign: "center", backgroundColor: "#f1f1f1", color: "#9c27b0", borderRadius: 2 }}>
-                        <Typography variant="h6">
-                            Come and join the fun! Take part in the next challenge!
-                        </Typography>
-                    </Paper>
-                </Box> */}
             </Box>
             <Box>
                 <Outlet />

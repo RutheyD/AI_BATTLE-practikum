@@ -102,13 +102,15 @@ builder.Services.AddAuthentication(options =>
 //    });
 
 //builder.Services.AddCors();
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("https://ai-battle-users.onrender.com", "http://localhost:4200")
-                          .AllowAnyHeader()
-                          .AllowAnyMethod());
-});
+builder.Services.AddCors();
+
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowSpecificOrigin",
+//        builder => builder.WithOrigins("https://ai-battle-users.onrender.com", "http://localhost:4200")
+//                          .AllowAnyHeader()
+//                          .AllowAnyMethod());
+//});
 
 //builder.Services.AddCors(options =>
 //{

@@ -15,6 +15,9 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/api/User/login`, user);
   }
   saveToken(token: string) {
+    console.log('token - '+ token);
+    
     sessionStorage.setItem('token', token);
   }
 }
+

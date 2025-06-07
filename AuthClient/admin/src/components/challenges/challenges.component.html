@@ -60,11 +60,133 @@
 </mat-accordion> -->
 
 
+<!-- 
 
+<div class="challenges-container">
+  <div class="challenges-content">
+    
+ 
+    <div class="challenge-list">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="title-icon">🎯</span>
+          Challenge Board
+        </h2>
+        
+        <div class="challenge-stats">
+          <div class="stat-badge">
+            <span class="stat-number">12</span>
+            <span class="stat-label">Active</span>
+          </div>
+          <div class="stat-badge">
+            <span class="stat-number">45</span>
+            <span class="stat-label">Total</span>
+          </div>
+        </div>
+      </div>
+      
+      <mat-accordion>
+        @for(currentChallenge of (allChallenges$|async);track $index){
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{currentChallenge.title}} 
+              </mat-panel-title>
+              <div class="panel-subtitle">
+                @if(currentChallenge.startDate && currentChallenge.endDate){
+                  <span class="status-badge" [ngClass]="isChallengeActive(currentChallenge.startDate, currentChallenge.endDate) ? 'active' : 'inactive'">
+                    {{isChallengeActive(currentChallenge.startDate, currentChallenge.endDate) ? 'Live Now' : 'Ended'}}
+                  </span>
+                }
+                <span class="date-range">
+                  {{currentChallenge.startDate| date:'MMM d'}} - {{currentChallenge.endDate| date:'MMM d, y'}}
+                </span>
+              </div>
+            </mat-expansion-panel-header>
+            <div class="challenge-description">
+              {{currentChallenge.description}} 
+            </div>
+          </mat-expansion-panel>
+        }
+      </mat-accordion>
+    </div> -->
 
-
+    
+    <!-- <div class="challenge-form">
+      <div class="form-container">
+        <form [formGroup]="challengeForm" (ngSubmit)="onSubmitAddChallenge()">
+          
+         
+          <div class="form-header">
+            <div class="form-icon">✨</div>
+            <h3 class="form-title">Create Challenge</h3>
+            <p class="form-subtitle">Launch a new creative battle</p>
+          </div>
+          
+    
+          <div class="form-content">
+            <mat-form-field appearance="fill">
+              <mat-label>Challenge Title</mat-label>
+              <input matInput 
+                     id="title" 
+                     formControlName="title" 
+                     placeholder="Enter an inspiring title"
+                     required>
+              @if (challenge['title']&&challenge['title'].errors &&challenge['title'].touched) {
+                @if(challenge['title'].errors['required']) {
+                  <mat-error>Challenge title is required</mat-error>
+                }
+                @if(challenge["title"].errors["minlength"]) {
+                  <mat-error>Title must be at least 4 characters</mat-error>
+                }
+              }
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+              <mat-label>Challenge Description</mat-label>
+              <textarea matInput 
+                        id="description" 
+                        formControlName="description" 
+                        placeholder="Describe the creative challenge in detail..."
+                        rows="4" 
+                        required></textarea>
+              @if (challenge['description']&&challenge['description'].errors &&challenge['description'].touched) {
+                @if(challenge['description'].errors["required"]) {
+                  <mat-error>Description is required</mat-error>
+                }
+                @if(challenge["description"].errors["minlength"]) {
+                  <mat-error>Description is required</mat-error>
+                }
+              }
+            </mat-form-field>
+          </div>
+          
+     
+          <div class="form-actions">
+            <button type="submit" 
+                    class="submit-button"
+                    [disabled]="challengeForm.invalid">
+              🚀 Launch Challenge
+            </button>
+          </div>
+          
+   
+          <div class="form-footer">
+            <p class="footer-text">
+              <span>💡</span>
+              Challenge will be reviewed before going live
+            </p>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+    
+  </div> -->
+<!-- ////////////////למעלה V0 הראשון למטה הטוב של רחלי////////////////////////////// -->
+  
 <div class="container">
-    <!-- Keep your existing challenge list code -->
+   
     <div class="challenge-list">
         <h2>Challenge Board</h2>
         <mat-accordion>
@@ -93,24 +215,24 @@
         </mat-accordion>
     </div>
 
-    <!-- New completely redesigned challenge form -->
+   
     <div class="challenge-form">
-        <!-- Decorative elements -->
+       
         <div class="form-decoration decoration-circle-1"></div>
         <div class="form-decoration decoration-circle-2"></div>
         
         <form [formGroup]="challengeForm" (ngSubmit)="onSubmitAddChallenge()">
             <mat-card>
-                <!-- Pink animated ribbon -->
+                
                 <div class="form-ribbon"></div>
                 
-                <!-- Form title section -->
+              
                 <div class="form-title-container">
                     <h2 class="form-title">Create New Challenge</h2>
                     <p class="form-subtitle">Share your exciting challenge with the community</p>
                 </div>
                 
-                <!-- Form fields -->
+                
                 <div class="form-content">
                     <mat-card-content>
                         <mat-form-field appearance="fill">
@@ -144,7 +266,7 @@
                         </mat-form-field>
                     </mat-card-content>
                     
-                    <!-- Redesigned button area -->
+                
                     <mat-card-actions>
                         <div class="button-container">
                             <button mat-raised-button type="submit" class="pink-button"
@@ -152,7 +274,7 @@
                         </div>
                     </mat-card-actions>
                     
-                    <!-- Form footer -->
+                   
                     <div class="form-footer">
                         <p>Your challenge will appear on the board after review</p>
                     </div>

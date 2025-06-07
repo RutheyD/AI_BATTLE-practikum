@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 // @Component({
 //   selector: 'app-challenges',
@@ -58,7 +59,7 @@ import { CommonModule } from '@angular/common';
   imports: [AsyncPipe, ReactiveFormsModule, MatButtonModule, MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    MatCardModule, MatExpansionModule,CommonModule],
+    MatCardModule, MatExpansionModule,CommonModule,MatInputModule,MatIconModule],
   templateUrl: './challenges.component.html',
   styleUrl: './challenges.component.css'
 })

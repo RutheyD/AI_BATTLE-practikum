@@ -1,7 +1,5 @@
 import { Avatar, Box, Stack, Typography } from "@mui/material"
 import { getUserNameByToken } from "../store/getFromToken";
-// import React from "react";
-
 const UserNameAvatar=()=>{
 
   const  userName=getUserNameByToken()
@@ -22,8 +20,7 @@ return(<>
                 <Typography variant="h4">
                     Hi {userName}!
                 </Typography>
-                {/* <Button onClick={handleShowUpdate} sx={{ color: 'var(--secondary-color)' }} >Update details</Button>
-                {showUpdate && <Update succeedUpdateFunc={handleCloseUpdate} />} */}
+               
             </Stack>
         </Box>
 </>)

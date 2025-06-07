@@ -9,13 +9,10 @@ import { ChartComponent } from '../components/chart/chart.component';
 
 export const routes: Routes = [
    { path: '', redirectTo: 'homePage', pathMatch: 'full' },
-//    {path:'homePage',component:HomePageComponent},
    {path:'homePage',component:HomePageComponent,canActivate:[authGuard]},
    {path:'login',component:LoginComponent},
-   {path:'challenges',component:ChallengesComponent},
+   {path:'challenges',component:ChallengesComponent,canActivate:[authGuard]},
    {path:'auth',component:AuthComponent},
-   {path:'users',component:UsersComponent},
-   {path:'chart',component:ChartComponent},
-
-
+   {path:'users',component:UsersComponent,canActivate:[authGuard]},
+   {path:'chart',component:ChartComponent,canActivate:[authGuard]},
 ];

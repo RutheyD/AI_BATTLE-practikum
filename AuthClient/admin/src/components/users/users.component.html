@@ -2,19 +2,20 @@
 
 <mat-accordion>
     @for(currentUser of (allUsers$|async);track $index){
+        <span>{{currentUser}}</span>
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
-                {{currentUser.fullName}}
+              Name: {{currentUser.fullName}}        
                 @if(!currentUser.isDeleted){
-                <button mat-raised-button color="primary" (click)="deleteUser(currentUser.id)">Delete User</button>
-                }@else {
-                <button mat-raised-button color="primary" (click)="addUser(currentUser.id)">Add User</button>
-                }
+                 <button mat-raised-button color="warn" class="action-btn" (click)="deleteUser(currentUser.id)">Delete User</button>
+                 }@else {
+                 <button mat-raised-button color="primary" class="action-btn" (click)="addUser(currentUser.id)">Add User</button>
+                 }             
             </mat-panel-title>
         </mat-expansion-panel-header>
         Email: {{currentUser.email}}
-        JoiningDate: {{currentUser.joiningDate}}
+        Joined at: {{currentUser.joiningDate}}
     </mat-expansion-panel>
     }
 </mat-accordion>

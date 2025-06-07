@@ -50,11 +50,11 @@ this.http.get<Challenge[]>(`${this.apiUrl}/api/Challenge/finished`).subscribe({
  }})
  }
  addChallenge(challenge:Challenge){
-  console.log("in add service1"); 
+   
   this.http.post(`${this.apiUrl}/api/Challenge/create`,challenge).subscribe({
     next:(response)=>{
       this.getAllChallenges();
-      console.log("in add service2");
+    
   },error:(e)=>{
     console.log("error");  
   }

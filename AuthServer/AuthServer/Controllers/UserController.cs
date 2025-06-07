@@ -120,7 +120,7 @@ namespace AiBattle.API.Controllers
         }
 
 
-        [HttpDelete("{id}")]
+        [HttpPatch("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var result = await _userService.SoftDeleteUserAsync(id);
@@ -129,5 +129,6 @@ namespace AiBattle.API.Controllers
 
             return NoContent();
         }
+        
     }
 }

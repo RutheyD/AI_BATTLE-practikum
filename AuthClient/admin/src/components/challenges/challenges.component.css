@@ -1,5 +1,4 @@
-/*-------------------*/
-/* CONTAINER */
+
 .container {
   display: flex;
   flex-direction: column;
@@ -19,7 +18,6 @@
   }
 }
 
-/* CHALLENGE LIST SECTION */
 .challenge-list {
   flex: 2;
   margin-bottom: 30px;
@@ -33,7 +31,7 @@
   letter-spacing: -0.5px;
 }
 
-/* Expansion Panel */
+
 ::ng-deep .mat-expansion-panel {
   margin-bottom: 20px !important;
   border-radius: 18px !important;
@@ -59,7 +57,7 @@
   font-size: 20px !important;
 }
 
-/* Status Badge */
+
 .status-badge {
   display: inline-flex;
   align-items: center;
@@ -100,7 +98,7 @@
   background-color: rgba(255, 64, 129, 0.8);
 }
 
-/* Panel Subtitle */
+
 .panel-subtitle {
   display: flex;
   align-items: center;
@@ -110,7 +108,7 @@
   gap: 10px;
 }
 
-/* Challenge Description */
+
 .challenge-description {
   font-size: 17px;
   line-height: 1.8;
@@ -123,7 +121,7 @@
   font-size: 17px !important;
 }
 
-/* CHALLENGE FORM SECTION */
+
 .challenge-form {
   flex: 1;
   max-width: 500px;
@@ -135,7 +133,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* Form Ribbon */
+
 .form-ribbon {
   height: 60px;
   background: rgba(255, 64, 129, 0.8);
@@ -144,7 +142,7 @@
   justify-content: center;
 }
 
-/* Form Title */
+
 .form-title {
   color: rgb(0, 0, 0);
   font-size: 24px;
@@ -153,7 +151,7 @@
   
 }
 
-/* Form Content */
+
 .form-content {
   padding: 40px 30px;
   background: #ffffff;
@@ -167,7 +165,7 @@
    text-align: center;
 
 }
-/* Form Fields */
+
 ::ng-deep .mat-form-field {
   width: 100% !important;
   margin-bottom: 25px !important;
@@ -192,7 +190,7 @@
   box-shadow: 0 0 5px rgba(138, 140, 255, 0.3);
 }
 
-/* Labels */
+
 ::ng-deep .mat-form-field-label {
   color: #777 !important;
   font-weight: 500 !important;
@@ -202,7 +200,6 @@
   color: rgba(138, 140, 255, 0.8) !important;
 }
 
-/* Inputs */
 ::ng-deep .mat-input-element {
   font-size: 16px !important;
   color: black !important;
@@ -214,13 +211,13 @@
   text-align: center;
 }
 
-/* Button Container */
+
 .button-container {
   text-align: center;
   margin-top: 30px;
 }
 
-/* Pink Button */
+
 .pink-button {
   background: rgba(255, 64, 129, 0.8) !important;
   color: white !important;
@@ -243,7 +240,7 @@
   background: #a7bff5 !important;
 }
 
-/* Error Messages */
+
 ::ng-deep .mat-error {
   color: rgba(255, 64, 129, 0.8) !important;
   background: rgba(255, 64, 129, 0.1);
@@ -253,3 +250,597 @@
   margin-top: 5px;
   display: inline-block;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main Container */
+/* .challenges-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.challenges-content {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  gap: 50px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.challenge-list {
+  animation: slideUp 0.8s ease-out;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.title-icon {
+  font-size: 40px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.challenge-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-badge {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 10px 20px;
+  text-align: center;
+  color: white;
+}
+
+.stat-number {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #1a1a1a;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+::ng-deep .mat-expansion-panel {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 25px !important;
+  margin-bottom: 25px !important;
+  overflow: hidden !important;
+  transition: all 0.4s ease !important;
+  position: relative !important;
+}
+
+::ng-deep .mat-expansion-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
+::ng-deep .mat-expansion-panel:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2) !important;
+  border-color: rgba(102, 126, 234, 0.5) !important;
+}
+
+::ng-deep .mat-expansion-panel-header {
+  padding: 30px !important;
+  background: transparent !important;
+  min-height: 80px !important;
+  border-radius: 25px !important;
+}
+
+::ng-deep .mat-expansion-panel-header-title {
+  color: #1a1a1a !important;
+  font-weight: 700 !important;
+  font-size: 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+}
+
+::ng-deep .mat-expansion-panel-header-title::before {
+  content: "🎯";
+  font-size: 24px;
+  animation: bounce 2s infinite;
+}
+
+.panel-subtitle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.status-badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.status-badge.active {
+  background: linear-gradient(45deg, #10b981, #059669);
+  color: white;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.status-badge.inactive {
+  background: linear-gradient(45deg, #ef4444, #dc2626);
+  color: white;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.date-range {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 15px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 30px 30px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 0 0 25px 25px !important;
+}
+
+.challenge-description {
+  color: #1a1a1a;
+  font-size: 16px;
+  line-height: 1.8;
+  padding: 25px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  font-weight: 500;
+}
+
+.challenge-description::before {
+  content: "📝";
+  position: absolute;
+  top: 25px;
+  left: -40px;
+  font-size: 20px;
+}
+
+.challenge-form {
+  animation: slideUp 0.8s ease-out 0.2s both;
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.form-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.form-header {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+  padding: 40px 30px;
+  text-align: center;
+  position: relative;
+}
+
+.form-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.form-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 30px;
+  color: white;
+  animation: float 3s ease-in-out infinite;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.form-subtitle {
+  color: #374151;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.form-content {
+  padding: 40px 30px;
+}
+
+::ng-deep .mat-form-field {
+  width: 100% !important;
+  margin-bottom: 25px !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  padding: 20px !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill:hover .mat-form-field-flex {
+  border-color: rgba(102, 126, 234, 0.5) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-2px) !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill.mat-focused .mat-form-field-flex {
+  border: 2px solid rgba(102, 126, 234, 0.8) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.2) !important;
+}
+
+::ng-deep .mat-form-field-label {
+  color: #1a1a1a !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+}
+
+::ng-deep .mat-form-field-label.mat-focused {
+  color: rgba(102, 126, 234, 1) !important;
+}
+
+::ng-deep .mat-input-element {
+  color: #1a1a1a !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+::ng-deep textarea.mat-input-element {
+  min-height: 120px !important;
+  resize: vertical !important;
+}
+
+::ng-deep .mat-input-element::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+
+::ng-deep .mat-error {
+  background: rgba(239, 68, 68, 0.1) !important;
+  color: #fca5a5 !important;
+  padding: 10px 15px !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  margin-top: 10px !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  animation: shake 0.5s ease-in-out !important;
+}
+
+::ng-deep .mat-error::before {
+  content: "⚠️";
+  font-size: 16px;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.form-actions {
+  padding: 0 30px 30px;
+  text-align: center;
+}
+
+.submit-button {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 18px 50px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.submit-button:hover::before {
+  left: 100%;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+}
+
+.submit-button:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.form-footer {
+  padding: 20px 30px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.footer-text {
+  color: #374151;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+  .challenges-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .challenge-form {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .challenges-container {
+    padding: 20px 15px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .challenge-stats {
+    justify-content: center;
+  }
+
+  .form-content {
+    padding: 30px 20px;
+  }
+
+  .form-header {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 24px;
+  }
+
+  .challenge-stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  ::ng-deep .mat-expansion-panel-header {
+    padding: 20px !important;
+  }
+
+  ::ng-deep .mat-expansion-panel-body {
+    padding: 0 20px 20px !important;
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+} */

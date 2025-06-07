@@ -5,7 +5,7 @@ const AppLayout=()=>{
 return(<>
 
 <NavBar/>
-{/* <Footer/> */}
+
 <Outlet/>
 </>)
 }

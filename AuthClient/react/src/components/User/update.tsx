@@ -5,7 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { getUserIdByToken } from "../store/getFromToken";
 
-// אימות באמצעות Yup
+
 const validationSchema = Yup.object({
   fullName: Yup.string().required("Full name is required"),
   email: Yup.string().email("Invalid email format").required("Email is required"),
@@ -15,10 +15,10 @@ const Update = () => {
   const [open, setOpen] = useState(true);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  // const handleOpen = () => setOpen(true);
+
   const handleClose = () => setOpen(false);
 
-  // ניהול טופס עם Formik
+
   const formik = useFormik({
     initialValues: { fullName: "", email: "" },
     validationSchema,
@@ -80,7 +80,7 @@ const Update = () => {
                   borderColor: "#d0d0d0",
                 },
                 "&:hover .MuiOutlinedInput-root": {
-                  borderColor: "#FF80AB", // צבע שדה טקסט על hover
+                  borderColor: "#FF80AB",
                 },
               }}
             />
@@ -101,7 +101,7 @@ const Update = () => {
                   borderColor: "#d0d0d0",
                 },
                 "&:hover .MuiOutlinedInput-root": {
-                  borderColor: "#FF80AB", // צבע שדה טקסט על hover
+                  borderColor: "#FF80AB", 
                 },
               }}
             />
@@ -114,7 +114,7 @@ const Update = () => {
                 textTransform: "none",
                 padding: "10px 0",
                 "&:hover": {
-                  backgroundColor: "#D81B60", // צבע בהיר יותר בהובר
+                  backgroundColor: "#D81B60",
                 },
               }}
             >
@@ -124,7 +124,7 @@ const Update = () => {
         </Box>
       </Modal>
 
-      {/* Snackbar להודעות שגיאה */}
+     
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={() => setOpenSnackbar(false)}>
         <Alert onClose={() => setOpenSnackbar(false)} severity="error" sx={{ width: "100%" }}>
           {errorMessage}
@@ -141,8 +141,8 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #d0d0d0", // גבולות עדינים
-  borderRadius: 2, // פינות מעוגלות
+  border: "2px solid #d0d0d0",
+  borderRadius: 2,
   boxShadow: 24,
   p: 4,
 };

@@ -1,18 +1,15 @@
-
 import { Box, Button, IconButton, InputAdornment, Snackbar, TextField, Alert } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import axios from "axios";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
 const validationSchema = Yup.object({
   name: Yup.string().required("Full Name is required"),
   email: Yup.string().email("Invalid email format").required("Email is required"),
   password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
 });
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
 const Register = ({ succeedFunc }: { succeedFunc: Function }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -51,7 +48,6 @@ const Register = ({ succeedFunc }: { succeedFunc: Function }) => {
       }
     },
   });
-
   return (
     <Box component="form" onSubmit={formik.handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
       <TextField
@@ -63,7 +59,6 @@ const Register = ({ succeedFunc }: { succeedFunc: Function }) => {
         error={formik.touched.name && Boolean(formik.errors.name)}
         helperText={formik.touched.name && formik.errors.name}
       />
-
       <TextField
         type="email"
         fullWidth
@@ -92,7 +87,6 @@ const Register = ({ succeedFunc }: { succeedFunc: Function }) => {
           ),
         }}
       />
-
       <Button
         fullWidth
         type="submit"
@@ -107,8 +101,6 @@ const Register = ({ succeedFunc }: { succeedFunc: Function }) => {
       >
         {formik.isSubmitting ? "Registering..." : "Register"}
       </Button>
-
-      {/* Snackbar להצגת שגיאות */}
       <Snackbar open={openSnackbar} autoHideDuration={4000} onClose={() => setOpenSnackbar(false)}>
         <Alert onClose={() => setOpenSnackbar(false)} severity="error" sx={{ width: "100%" }}>
           {errorMessage}
