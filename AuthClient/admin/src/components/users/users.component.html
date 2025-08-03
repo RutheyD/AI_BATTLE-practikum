@@ -2,11 +2,12 @@
 
 <mat-accordion>
     @for(currentUser of (allUsers$|async);track $index){
-        <span>{{currentUser}}</span>
+       
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
-              Name: {{currentUser.fullName}}        
+              Name: {{currentUser.fullName}}   
+                   
                 @if(!currentUser.isDeleted){
                  <button mat-raised-button color="warn" class="action-btn" (click)="deleteUser(currentUser.id)">Delete User</button>
                  }@else {
